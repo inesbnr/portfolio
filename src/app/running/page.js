@@ -130,8 +130,8 @@ export default function Running() {
          {/* Text Container */}
          <div className={styles.overviewText}>
            <p>
-           "Design new ways for people to interact with
-           their own biosignals for health and performance improvements in sports"
+           Design new ways for people to interact with
+           their own biosignals for health and performance improvements in sports
 
            </p>
          </div>
