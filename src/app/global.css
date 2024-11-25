@@ -1,0 +1,34 @@
+/* global.css */
+
+/* Reset default margin and padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  background-color: #12263A; /* Optional, adjust according to your design */
+  overflow-y: auto;   /* Ensure vertical scrolling is enabled */
+}
+
+
+/* Set base font size and style for the entire document */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+ul, ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box; /* Ensures padding and margin don’t affect width and height */
+}
+
+/* styles/globals.css */
+@import './styles/fonts.css';

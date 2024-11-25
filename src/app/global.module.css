@@ -1,0 +1,698 @@
+/* Navbar.module.css */
+
+/* General Navbar Styling */
+.navbar {
+  width: 100%;
+  padding: 15px 20px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #12263A; /* Dark background */
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #fff; /* Bottom border line */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Navigation Items for Desktop */
+.navItems {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1.5vw;
+}
+
+.navItems li {
+  margin: 0 2vw;
+}
+
+.navItems a {
+  text-decoration: none;
+  color: #fff;
+  font-size: clamp(14px, 1.5vw, 24px);
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease-in-out;
+  letter-spacing: 0.15vw;
+}
+
+.navItems a:hover {
+  color: #0ABCC1;
+}
+
+/* Contact Button */
+.contactButton {
+  text-decoration: none;
+  font-size: clamp(14px, 1.5vw, 24px);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #fff;
+  padding: 0.5vw 1.5vw;
+  border-radius: 2.5vw;
+  transition: all 0.3s ease;
+}
+
+.contactButton:hover {
+  border: 1px solid #0ABCC1;
+  background-color: #0ABCC1;
+  color: #12263A;
+}
+
+/* Hamburger Menu for Small Screens */
+.hamburger {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0; /* Aligns the dropdown to the left */
+  background-color: #12263A;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  width: 150px;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown a {
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown a:hover {
+  background-color: #0ABCC1;
+  color: #12263A;
+}
+
+/* Show the dropdown menu when active */
+.dropdown.active {
+  display: flex;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navItems {
+    display: none; /* Hide desktop nav items */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+}
+
+/* For larger screens (tablets and desktops) */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none; /* Hide hamburger icon on large screens */
+  }
+  .dropdown {
+    display: none; /* Hide dropdown menu on large screens */
+  }
+}
+
+
+/* Main content styling */
+.mainContent {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-weight: 400;
+  color: #0ABCC1;
+  background-color: #12263A;
+  padding-top: 80px; /* Ensure content doesn't overlap navbar */
+  
+}
+
+/* WELCOME */
+.welcomeSection {
+  background-color: #12263A; /* Background color for the welcome section */
+  padding: clamp(5px, 2vh, 10px) clamp(1px, 1vw, 5px); /* Internal spacing */
+  text-align: center; /* Center-align text */
+  
+}
+
+.mainTitle {
+  font-size: 5vw; /* Responsive font size */
+  padding: clamp(1px, 1vw, 5px);
+  color: #0ABCC1;
+}
+
+/* Separators */
+.separator {
+  text-align: left; /* Align text to the left */
+  background-color: #12263A; /* Text color */
+  margin: 4vw 0; /* Space around */
+  position: relative; /* Allows positioning child elements */
+  transition: transform 0.5s ease; /* Smooth animation */
+}
+.separator::before,
+.separator::after {
+  content: ''; /* Add content before and after */
+  position: absolute; /* Absolute positioning */
+  width: 40%; /* Width of the line */
+  height: 0.1vw; /* Line thickness in viewport units */
+  top: 50%; /* Vertical alignment */
+  text-align: left; /* Align text to the left */
+}
+.separator::before {
+  left: 0; /* Position the line to the left */
+}
+.separator::after {
+  right: 0; /* Position the line to the right */
+}
+
+/* TEXT OUTLINED */
+.outlinedAboutme {
+  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-weight: 700;
+  color: #12263A; /* Main text color */
+  text-shadow: 
+    -0.5px -0.5px 0 #D1FEFF,  
+    0.5px -0.5px 0 #D1FEFF,
+    -0.5px 0.5px 0 #D1FEFF,
+    0.5px 0.5px 0 #D1FEFF; /* Shadows for outline effect */
+  transform: translateX(0%); /* Initial position */
+  transition: transform 0.8s ease-out; /* Smooth transition */
+  white-space: nowrap; /* Prevent text wrapping */
+  display: inline-block; /* Allows translation */
+  position: relative; /* Relative positioning */
+  left: -15vw; /* Adjust initial position */
+}
+.outlinedProject {
+  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-weight: 700;
+  color: #12263A; /* Main text color */
+  text-shadow: 
+    -0.5px -0.5px 0 #CCE5FF,  
+    0.5px -0.5px 0 #CCE5FF,
+    -0.5px 0.5px 0 #CCE5FF,
+    0.5px 0.5px 0 #CCE5FF; /* Shadows for outline effect */
+  transform: translateX(-100%); /* Initial position */
+  transition: transform 0.8s ease-out; /* Smooth transition */
+  white-space: nowrap; /* Prevent text wrapping */
+  display: inline-block; /* Allows translation */
+  position: relative; /* Relative positioning */
+  left: -15vw; /* Adjust initial position */
+}
+.outlinedSkills {
+  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-weight: 700; /* Font weight */
+  color: #12263A; /* Main text color */
+  text-shadow: 
+    -0.5px -0.5px 0 #FFEFDE,  
+    0.5px -0.5px 0 #FFEFDE,
+    -0.5px 0.5px 0 #FFEFDE,
+    0.5px 0.5px 0 #FFEFDE; /* Shadows for outline effect */
+  transform: translateX(-200%); /* Initial position */
+  transition: transform 0.8s ease-out; /* Smooth transition */
+  white-space: nowrap; /* Prevent text wrapping */
+  display: inline-block; /* Allows translation */
+  position: relative; /* Relative positioning */
+  left: -30vw; /* Adjust initial position */
+}
+.outlinedContact {
+  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-weight: 700; /* Font weight */
+  color: #12263A; /* Main text color */
+  text-shadow: 
+    -0.5px -0.5px 0 #CEFFED,  
+    0.5px -0.5px 0 #CEFFED,
+    -0.5px 0.5px 0 #CEFFED,
+    0.5px 0.5px 0 #CEFFED; /* Shadows for outline effect */
+  transform: translateX(-200%); /* Initial position */
+  transition: transform 0.8s ease-out; /* Smooth transition */
+  white-space: nowrap; /* Prevent text wrapping */
+  display: inline-block; /* Allows translation */
+  position: relative; /* Relative positioning */
+  left: -30vw; /* Adjust initial position */
+}
+
+
+/* Container parent */
+.containerlogo {
+  position: relative;
+  width: 100%;
+  height: clamp(11rem, 35vw, 60rem); /* Vous pouvez aussi utiliser 100% si vous voulez qu'il occupe toute la hauteur de l'écran */
+}
+
+.illustration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;   /* Ensure the image doesn't exceed the container width */
+  width: 100%;
+
+  object-fit: cover; /* S'assure que l'image couvre tout l'espace sans se déformer */
+
+  margin: 0 auto;    /* Center the image and remove extra vertical margin */
+  object-fit: cover; /* S'assure que l'image couvre tout l'espace sans se déformer */
+}
+.container3D {
+  position: absolute;
+  width: 100%;
+  height: clamp(10rem, 40vw, 100rem); /* Vous pouvez aussi utiliser 100% si vous voulez qu'il occupe toute la hauteur de l'écran */
+}
+
+
+
+
+
+/* Présentation avec texte puis photo à côté*/
+.presentationSection {
+  display: flex;                     /* Utilise flexbox */
+  flex-direction: column;            /* Empile les éléments verticalement */
+  align-items: center;               /* Centre horizontalement les éléments */
+  padding: 0px;                     /* Espacement autour de la section */
+  background-color: #12263A;         /* Couleur de fond (facultatif) */
+}
+
+.textAndImageContainer {
+  display: flex; /* Use flexbox to arrange items horizontally */
+  justify-content: space-between; /* Place text and image at opposite ends */
+  align-items: center; /* Vertically align them */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.aboutMeText {
+  max-width: 50%; /* Limit the text width */
+  text-align: left;              /* Centre le texte */
+  margin-top: 10px;   
+  font-size: clamp(20px, 2vw, 30px); 
+  font-family: 'Montserrat'; 
+  color: #D1FEFF;            /* Augmentez l'espacement au-dessus du texte */
+  line-height: 2;
+  /* Ajustez la marge supérieure selon vos besoins */
+}
+
+.customFont {
+  font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
+  font-weight: 400; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+  color: #0ABCC1; 
+}
+
+.customFontbig {
+  font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
+  font-weight: 400; /* Adjust font-weight as necessary */
+  font-size: clamp(25px, 2vw, 40px); /* Matches the surrounding text's size */
+}
+
+.customFontcolor {
+  font-weight: 800; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+  color: #0ABCC1; 
+}
+
+.aboutMeParagraph {
+  font-size: 1.5rem;
+}
+
+.imageContainer {
+  text-align: center; /* Center the image and caption */
+  margin-left: 20px;
+  max-width: 40%; /* Limit the image container width */
+  flex: 1;                         /* Prend 50% de l'espace disponible */
+  display: flex;                  /* Utiliser flexbox pour gérer le texte sous l'image */
+  flex-direction: column;         /* Aligne l'image et le texte verticalement */
+  align-items: center;            /* Centre le contenu horizontalement */
+}
+
+.profileImage {
+  width: 100%; /* Make the image responsive */
+  max-width: 450px; /* Set a max width for the image */
+  height: auto;                   /* Garde les proportions de l'image */
+  align-items: center;border-radius: 50%;
+}
+
+/* Section de projets */
+.section {
+  display: flex;
+  flex-direction: column; /* Stack the projects vertically */
+  gap: 0px;               /* Adds space between the projects */
+  padding: 30px 40px;      /* Adds 20px padding on top/bottom and 30px on left/right */
+}
+
+.projectsTitle {
+  text-align: center;                /* Centre le titre des projets */
+  font-size: 28px;    
+  font-family: 'Montserrat';     
+  color: #CCE5FF;                /* Taille de la police pour le titre */
+  margin-bottom: 20px;               /* Espacement en bas du titre */
+}
+.projectContainer {
+  display: flex;                     /* Utilise Flexbox pour le conteneur de projets */
+  flex-direction: column;            /* Aligne les projets en colonne */
+  padding: 30px 0px; 
+  gap: 100px;                        /* Espacement entre les projets */
+}
+.project {
+  display: flex;                     /* Utilise Flexbox pour chaque projet */
+  align-items: center;              /* Centre les éléments verticalement */
+}
+.projectImage {
+  flex: 1;                          /* Prend 50% de l'espace disponible */
+  width: 25px;                /* Largeur maximale de l'image */
+  border-radius: 0px;    
+}
+.projectImage img {
+                    /* Image prend toute la largeur de son conteneur */
+  border-radius: 0px;             /* Arrondi des coins de l'image */
+  width: 20px;                /* Largeur maximale de l'image */
+  max-width: 70%;                /* S'assure que l'image ne dépasse pas son conteneur */
+}
+.projectDescription {
+  flex: 1;      
+  color: #CCE5FF;                 /* Prend 50% de l'espace disponible */
+  padding-left: 20px;              /* Espacement à gauche */
+  text-align: left; 
+  font-size: 20px;
+}
+
+.projectDescription h1 {
+  font-size: clamp(30px, 2vw, 40px);
+  color: #5BA5F1;     
+  font-family: 'Aborm', sans-serif;             /* Taille de la police pour le titre du projet */
+  margin: 0;                        /* Retire les marges par défaut */
+  margin-bottom: 0px;
+}
+
+.projectDescription h3 {
+  font-size: clamp(20px, 2vw, 30px);                  /* Taille de la police pour le titre du projet */
+  color: #5BA5F1; 
+  font-family: 'Bebas Neue', sans-serif;
+  margin: 2;                        /* Retire les marges par défaut */
+  padding-top: 15px; 
+  
+}
+
+.projectDescription p {
+  font-size: clamp(15px, 2vw, 24px);; 
+  font-family: 'Montserrat';
+  margin-top: 10px;                 /* Espacement au-dessus de la description */
+}
+
+/* Styles pour les projets alternants */
+.left {
+  flex-direction: row;              /* Positionne l'image à gauche */
+}
+
+.right {
+  flex-direction: row-reverse;      /* Positionne l'image à droite */
+
+}
+.project.right .projectDescription {
+  text-align: right;            /* Align text to the right */
+  padding-right: 20px; 
+}
+
+/* Adjust title styles */
+.projectDescription h1,
+.projectDescription h3 {
+  margin: 0;
+  padding-bottom: 0px;   /* Adds space between title and description */
+}
+
+.divider {
+  width: 100%;             /* Make the divider full width of the text container */
+  max-width: 300px;       /* Limit the maximum width of the divider */
+  height: 2px;            /* Set the height of the divider */
+  background-color: #CCE5FF; /* Change this to your desired color */
+  margin: 5px 0;          /* Add some vertical spacing */
+  align-self: flex-start;  /* Aligns the divider to the left */
+}
+/* Style for the divider/bar on the right */
+/* Style for the divider/bar in the right aligned project */
+/* Style for the divider/bar in the right aligned project */
+/* Ensure the right project description is aligned */
+.project.right .divider {
+  margin-left: auto;                  /* Push the divider to the right side */
+}
+
+.learnMoreButton {
+  font-size: clamp(16px, 2vw, 25px);; 
+  display: inline-block;        /* Makes the link behave like a button */
+  margin-top: 10px;            /* Add some space above the button */
+  padding: 10px 20px;          /* Padding for button */
+     /* Background color */
+  border: 1px solid #CCE5FF; /* White border */
+  color: #CCE5FF;                 /* Text color */                /* No border */
+  border-radius: 25px;         /* Rounded corners */
+  text-decoration: none;        /* Remove underline */
+  font-family: 'Montserrat', sans-serif; /* Font style */
+  text-align: center;          /* Center text */
+  background-color: #12263A;
+  transition: background-color 0.3s ease; /* Transition effect */
+}
+
+.learnMoreButton:hover {
+  background-color: #5BA5F1;   /* Change background color on hover */
+  color: #CCE5FF;                 /* Text color */  
+  border: 1px solid #5BA5F1; /* White border */
+
+}
+
+/* SKILLS */
+.skillsSection {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.skillsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+/* Skill Card Styles */
+.skillCard {
+  background-color: rgba(249, 249, 249, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.skillCard h3 {
+  font-size: clamp(20px, 2vw, 40px);;
+  margin-bottom: 1rem;
+  color: #F4D1AE;
+}
+
+.skillCard ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillCard li {
+  font-size: clamp(16px, 2vw, 20px);;
+  color: #FFEFDE;
+  margin-bottom: 0.5rem;
+}
+
+/* Hover Effect */
+.skillCard:hover {
+  transform: translateY(-10px);
+  background-color: #FFEFDE;
+
+}
+.skillCard:hover h3 {
+  color: #666; /* Changer la couleur du titre */
+}
+
+.skillCard:hover li {
+  color: #222; /* Changer la couleur des éléments de la liste */
+}
+/* Responsive Design */
+/* For very small screens (1 card per row) */
+@media (max-width: 600px) {
+  .skillsContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* For medium screens (2 cards per row) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .skillsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For larger screens (4 cards per row) */
+@media (min-width: 1025px) {
+  .skillsContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+
+/* CONTACT PART */
+.contactSection {
+  padding: 40px 20px; /* Add some padding */
+  background-color: #12263A; /* Background color */
+  color: #CEFFED; /* Text color */
+}
+
+.contactContainer {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between columns */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.formContainer {
+  flex: 1; /* Take up 50% of the space */
+  margin-right: 20px; /* Space between form and map */
+}
+
+.mapContainer {
+  flex: 1; /* Take up 50% of the space */
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+}
+
+.contactForm label {
+  margin-bottom: 5px; /* Space between label and input */
+  text-align: left;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+}
+
+.contactForm input,
+.contactForm textarea {
+  font-family: 'Typewriter';
+  font-size: 12px;  
+  padding: 10px; /* Padding for inputs */
+  margin-bottom: 15px; /* Space between inputs */
+  border: 1px solid #CEFFED; /* Border for inputs */
+  border-radius: 4px; /* Rounded corners */
+  color: #000; /* Text color inside inputs */
+}
+
+.contactForm button {
+  padding: 10px; /* Padding for button */
+  background-color: #12263A; /* Button background color */
+  color: #CEFFED; /* Button text color */
+  border: 1px solid #CEFFED; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 14px;  
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+.contactForm button:hover {
+  background-color: #CEFFED; /* Change color on hover */
+  color: #12263A; /* Button text color */
+}
+
+.mapContainer iframe {
+  width: 100%; /* Make the iframe take the full width of the container */
+  height: 330px; /* Adjust height as needed */
+  margin-top: 20px;  
+}
+
+.footer {
+/* Example background color */
+  display: flex;                    /* Use flexbox for alignment */
+  justify-content: center;          /* Center the logo horizontally */
+  align-items: center;              /* Center the logo vertically */
+  padding: 20px;                    /* Add some padding */
+  background-color: #12263A;        /* Background color of the footer */
+  position: relative;                /* Position relative if needed */
+  bottom: 0;                        /* Align to the bottom */
+  width: 100%;  
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  max-height: 50px;                /* Set max width for the logo */
+  width: auto;                    /* Maintain aspect ratio */
+  margin: auto;     
+}
+
+.linkedinLink {
+  margin-left: 20px; /* Space between logos */
+}
+
+.linkedinLogo {
+  height: 50px; /* Adjust the size of the LinkedIn logo */
+  width: auto;
+}
+
+
+
+/* ANIMATION */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%); /* Start off-screen to the left */
+    opacity: 0; /* Start transparent */
+  }
+  to {
+    transform: translateX(0); /* End at original position */
+    opacity: 1; /* Fully opaque */
+  }
+}
+
+.slide {
+  animation: slideIn 2s ease forwards; /* Change duration and easing as needed */
+}
+
+
+/* TITRE DES SECTIONS */
+
+.aboutMeTitle {
+
+  align-self: flex-start;          /* Positionne le titre en haut à gauche */
+  font-size: clamp(30px, 5vw, 50px);   
+  color: #0ABCC1  ;            /* Ajustez la taille de la police selon vos besoins */
+  margin: 0;                       /* Retire les marges par défaut */
+}
+
+.myProjectsTitle {
+  align-self: flex-start;          /* Positionne le titre en haut à gauche */
+  font-size: clamp(30px, 5vw, 50px); 
+  color: #5BA5F1;                 /* Ajustez la taille de la police selon vos besoins */
+  margin: 0;                       /* Retire les marges par défaut */
+}
+
+.mySkillsTitle {
+
+  align-self: flex-start;          /* Positionne le titre en haut à gauche */
+  font-size: clamp(30px, 5vw, 50px);   
+  color: #F4D1AE  ;            /* Ajustez la taille de la police selon vos besoins */
+  margin: 0;                          /* Retire les marges par défaut */
+}

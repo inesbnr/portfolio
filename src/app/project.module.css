@@ -1,0 +1,569 @@
+/* Navbar.module.css */
+
+/* General Navbar Styling */
+.navbar {
+  width: 100%;
+  padding: 15px 20px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #12263A; /* Dark background */
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #fff; /* Bottom border line */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Navigation Items for Desktop */
+.navItems {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1.5vw;
+}
+
+.navItems li {
+  margin: 0 2vw;
+}
+
+.navItems a {
+  text-decoration: none;
+  color: #fff;
+  font-size: clamp(14px, 1.5vw, 24px);
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: color 0.3s ease-in-out;
+  letter-spacing: 0.15vw;
+}
+
+.navItems a:hover {
+  color: #0ABCC1;
+}
+
+/* Contact Button */
+.contactButton {
+  text-decoration: none;
+  font-size: clamp(14px, 1.5vw, 24px);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #fff;
+  padding: 0.5vw 1.5vw;
+  border-radius: 2.5vw;
+  transition: all 0.3s ease;
+}
+
+.contactButton:hover {
+  border: 1px solid #0ABCC1;
+  background-color: #0ABCC1;
+  color: #12263A;
+}
+
+/* Hamburger Menu for Small Screens */
+.hamburger {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0; /* Aligns the dropdown to the left */
+  background-color: #12263A;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  width: 150px;
+  padding: 10px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown a {
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown a:hover {
+  background-color: #0ABCC1;
+  color: #12263A;
+}
+
+/* Show the dropdown menu when active */
+.dropdown.active {
+  display: flex;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navItems {
+    display: none; /* Hide desktop nav items */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+}
+
+/* For larger screens (tablets and desktops) */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none; /* Hide hamburger icon on large screens */
+  }
+  .dropdown {
+    display: none; /* Hide dropdown menu on large screens */
+  }
+}
+
+
+  /* Section principale */
+.welcomeSectionProject {
+  display: flex;
+  justify-content: center;            /* Centre horizontalement le contenu */
+  align-items: center;                /* Centre verticalement le contenu */
+  padding: 0;                         /* Retire les marges internes */
+  background-color: #12263A;          /* Couleur de fond */
+  width: 100%;                       /* Assure que la section couvre toute la largeur de l'écran */
+  overflow: hidden;                   /* Coupe tout débordement */
+}
+
+/* Conteneur de l'image */
+.imageContainer {
+  position: relative;                 /* Conteneur pour positionner le texte */
+  display: block;                     /* Laisse l'image occuper toute la largeur */
+  width: 100%;                        /* S'étend sur 100% de la largeur parent */
+}
+
+.imageContainerDouble {
+  display: flex;          /* Arrange items side by side */
+  flex-wrap: wrap;         /* Allow items to wrap to the next line when needed */
+  gap: 20px;              /* Adds space between the images */
+  justify-content: center; /* Centers the images horizontally */
+}                       /* S'étend sur 100% de la largeur parent */
+
+
+/* Texte superposé */
+.textOverlay {
+padding-top: 10vh;
+  position: absolute;                 /* Permet de placer le texte sur l'image */
+  top: 50%;                           /* Centre verticalement */
+  left: 50%;                          /* Centre horizontalement */
+  transform: translate(-50%, -50%);   /* Ajuste le point d'ancrage */
+  text-align: center;                 /* Centre les titres */
+  z-index: 1;                         /* Place le texte au-dessus de l'image */
+}
+
+/* Style pour le titre principal */
+.mainTitleProject {
+  font-size: 7vw;                    /* Taille du texte principal */
+  color: #0ABCC1;                     /* Couleur du texte */                 /* Supprime les marges */
+}
+
+/* Style pour le sous-titre */
+.subTitleProject {
+  font-size: 25vw;                    /* Taille du texte secondaire */
+  font-family: 'Aborm', sans-serif;  
+  color: #ffffff;             /* Espace entre les titres */
+  
+}
+.subTitleProject2 {
+  font-size: 15vw;                    /* Taille du texte secondaire */
+  font-family: 'Aborm', sans-serif;  
+  color: #ffffff;             /* Espace entre les titres */
+  
+}
+
+/* Image */
+.illustrationProject {
+  width: 100%;                        /* S'étend sur toute la largeur */
+  height: auto;                       /* Maintient les proportions */
+  display: block;                     /* Évite les marges non désirées */
+}
+
+  /* Main content styling */
+  .mainContent {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-weight: 400;
+    color:#0ABCC1;
+    background-color: #12263A;
+    padding-top: 60px; /* Ensure content doesn't overlap navbar */
+  }
+  
+
+  .separator {
+    text-align: left; /* Aligne le texte au centre */
+    
+    background-color: #12263A; /* Définit la couleur du texte */
+    margin: 10px 0; /* Ajoute un espace autour */
+    position: relative; /* Permet de positionner les éléments enfants */
+    transition: transform 0.5s ease; /* Transition for smooth animation */
+  
+  }
+  .separator::before,
+  .separator::after {
+    content: ''; /* Permet d'ajouter un contenu avant et après */
+    position: absolute; /* Positionnement absolu */
+    width: 40%; /* Largeur de la ligne */
+    height: 1px; /* Épaisseur de la ligne */
+    top: 50%; /* Aligne verticalement */
+    text-align: left; /* Aligne le texte au centre */
+  }
+  
+  
+  .separator::before {
+    left: 0; /* Positionne la ligne à gauche */
+  }
+  
+  .separator::after {
+    right: 0; /* Positionne la ligne à droite */
+  }
+
+  /* TEXT OUTLINED */
+
+.outlinedContact {
+  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-weight: 700; /* Font weight */
+  color: #12263A; /* Main text color */
+  text-shadow: 
+    -0.5px -0.5px 0 #CEFFED,  
+    0.5px -0.5px 0 #CEFFED,
+    -0.5px 0.5px 0 #CEFFED,
+    0.5px 0.5px 0 #CEFFED; /* Shadows for outline effect */
+  transform: translateX(-200%); /* Initial position */
+  transition: transform 0.8s ease-out; /* Smooth transition */
+  white-space: nowrap; /* Prevent text wrapping */
+  display: inline-block; /* Allows translation */
+  position: relative; /* Relative positioning */
+  left: -30vw; /* Adjust initial position */
+}
+
+  .outlinedOverview {
+    font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+    font-weight: 700;
+    color: #12263A; /* Couleur du texte principal */
+    text-shadow: 
+      -0.5px -0.5px 0 #D1FEFF,  
+      0.5px -0.5px 0 #D1FEFF,
+      -0.5px 0.5px 0 #D1FEFF,
+      0.5px 0.5px 0 #D1FEFF; /* Ombres pour créer l'effet de contour */
+      
+      transform: translateX(0%); /* Set initial position off-screen left */
+      transition: transform 0.8s ease-out; /* Smooth transition */
+      white-space: nowrap; /* Prevent wrapping */
+      display: inline-block; /* Allows for translation without wrapping */
+      position: relative; /* Allows for relative positioning */
+      left: -15vw; /* Adjust initial position */
+  }
+  .outlinedProcess {
+    font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+    font-weight: 700;
+    color: #12263A; /* Couleur du texte principal */
+    text-shadow: 
+      -0.5px -0.5px 0 #CCE5FF,  
+      0.5px -0.5px 0 #CCE5FF,
+      -0.5px 0.5px 0 #CCE5FF,
+      0.5px 0.5px 0 #CCE5FF; /* Ombres pour créer l'effet de contour */
+      transform: translateX(-100%); /* Set initial position off-screen left */
+      transition: transform 0.8s ease-out; /* Smooth transition */
+      white-space: nowrap; /* Prevent wrapping */
+      display: inline-block; /* Allows for translation without wrapping */
+      position: relative; /* Allows for relative positioning */
+      left: -15vw; /* Adjust initial position */
+  }
+  
+  /* Overview Section */
+.section {
+  padding: 10px 20px;
+}
+
+.aboutProject {
+
+  text-align: left;          /* Positionne le titre en haut à gauche */
+  font-size: clamp(30px, 5vw, 50px);   
+  text-transform: uppercase;
+  color: #0ABCC1  ;            /* Ajustez la taille de la police selon vos besoins */
+  padding: 10px 0;                       /* Retire les marges par défaut */
+}
+.aboutProjectSmall {
+
+  text-align: left;          /* Positionne le titre en haut à gauche */
+  font-size: clamp(20px, 3vw, 40px);   
+  color: #0ABCC1  ;            /* Ajustez la taille de la police selon vos besoins */
+  padding: 10px 0;                       /* Retire les marges par défaut */
+}
+.moreProject {
+  text-align: left;        /* Positionne le titre en haut à gauche */
+  font-size: clamp(30px, 5vw, 50px); 
+  text-transform: uppercase;
+  color: #5BA5F1;                 /* Ajustez la taille de la police selon vos besoins */
+  padding: 10px 0;                         /* Retire les marges par défaut */
+}
+.moreProjectSmall {
+  text-align: left;        /* Positionne le titre en haut à gauche */
+  font-size: clamp(20px, 3vw, 40px);   
+  color: #5BA5F1;                 /* Ajustez la taille de la police selon vos besoins */
+  padding: 10px 0;                        /* Retire les marges par défaut */
+}
+.moreProject2 {
+  text-align: left;        /* Positionne le titre en haut à gauche */
+  font-size: clamp(30px, 5vw, 50px); 
+  text-transform: uppercase;
+  color: #F4D1AE;                 /* Ajustez la taille de la police selon vos besoins */
+  padding: 10px 0;                         /* Retire les marges par défaut */
+}
+.moreProjectSmall2{
+  text-align: left;        /* Positionne le titre en haut à gauche */
+  font-size: clamp(20px, 3vw, 40px);   
+  color: #F4D1AE;                 /* Ajustez la taille de la police selon vos besoins */
+  padding: 10px 0;                        /* Retire les marges par défaut */
+}
+
+
+.textAndImageContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Ensures proper layout on smaller screens */
+}
+
+.overviewText {
+  flex: 1;
+  font-size: clamp(16px, 2vw, 26px);
+  font-family: Montserrat;
+  line-height: 1.6;
+  color: #D1FEFF;
+  text-align: left;
+}
+
+.imageContainer {
+  flex: 1;
+  text-align: center;
+}
+.imageContainer {
+  display: flex;          /* Makes images appear in a row (side by side) */
+  gap: 20px;              /* Adds space between the images */
+}
+
+.smallImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.longImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.longImageSocks {
+  width: 100%;            /* Makes the images responsive */
+  max-width: 500px; 
+  height: auto;
+
+}
+/* For very small screens (below 480px), ensure that the images are stacked */
+@media (max-width: 480px) {
+  .longImageSocks {
+    max-width: 100%;          /* Stacks images by making them take up full width */
+  }
+}
+
+.imageCaption {
+  margin-top: 10px;
+  font-size: 2vw;
+  font-family: Aborm;
+  color: #5BA5F1;
+  text-align: center;
+}
+
+
+ /* CONTACT PART */
+.contactSection {
+  padding: 40px 20px; /* Add some padding */
+  background-color: #12263A; /* Background color */
+  color: #CEFFED; /* Text color */
+}
+
+.contactContainer {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between columns */
+  align-items: flex-start; /* Align items to the top */
+}
+
+.formContainer {
+  flex: 1; /* Take up 50% of the space */
+  margin-right: 20px; /* Space between form and map */
+}
+
+.mapContainer {
+  flex: 1; /* Take up 50% of the space */
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+}
+
+.contactForm label {
+  margin-bottom: 5px; /* Space between label and input */
+  text-align: left;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+}
+
+.contactForm input,
+.contactForm textarea {
+  font-family: 'Typewriter';
+  font-size: 12px;  
+  padding: 10px; /* Padding for inputs */
+  margin-bottom: 15px; /* Space between inputs */
+  border: 1px solid #CEFFED; /* Border for inputs */
+  border-radius: 4px; /* Rounded corners */
+  color: #000; /* Text color inside inputs */
+}
+
+.contactForm button {
+  padding: 10px; /* Padding for button */
+  background-color: #12263A; /* Button background color */
+  color: #CEFFED; /* Button text color */
+  border: 1px solid #CEFFED; /* No border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 14px;  
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+.contactForm button:hover {
+  background-color: #CEFFED; /* Change color on hover */
+  color: #12263A; /* Button text color */
+}
+
+.mapContainer iframe {
+  width: 100%; /* Make the iframe take the full width of the container */
+  height: 330px; /* Adjust height as needed */
+  margin-top: 20px;  
+}
+
+
+/* Footer styles */
+.footer {
+  display: flex;                    /* Use flexbox for alignment */
+  justify-content: center;          /* Center the logo horizontally */
+  align-items: center;              /* Center the logo vertically */
+  padding: 20px;                    /* Add some padding */
+  background-color: #12263A;        /* Background color of the footer */
+  position: relative;                /* Position relative if needed */
+  bottom: 0;                        /* Align to the bottom */
+  width: 100%;                      /* Full width of the page */
+}
+
+/* Logo styles */
+.logo {
+  max-width: 150px;                /* Set max width for the logo */
+  height: auto;                    /* Maintain aspect ratio */
+  margin: 0 auto;                  /* Center the logo */
+}
+
+  
+  /*Animations*/
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .rotate {
+    animation: rotate 2s ease-in-out forwards; /* Adjust duration as needed */
+  }
+  
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(-100%); /* Start off-screen to the left */
+      opacity: 0; /* Start transparent */
+    }
+    to {
+      transform: translateX(0); /* End at original position */
+      opacity: 1; /* Fully opaque */
+    }
+  }
+  
+  .slide {
+    animation: slideIn 2s ease forwards; /* Change duration and easing as needed */
+  }
+  
+  
+
+
+
+  .paragraphText {        /* Positionne le titre en haut à gauche */
+    
+    text-align: left;
+    font-size: clamp(16px, 2vw, 26px);
+    color: #CCE5FF;                 /* Ajustez la taille de la police selon vos besoins */
+    margin: 0;                       /* Retire les marges par défaut */
+  }
+
+  .paragraphTexthalf {
+    max-width: 50%; /* Limit the text width */
+    text-align: left;
+    font-size: clamp(16px, 2vw, 26px);
+    color: #CCE5FF;                 /* Ajustez la taille de la police selon vos besoins */
+    margin: 0; 
+  }
+  
+  .paragraphTextcenter {
+    max-width: 100%; /* Limit the text width */
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #CCE5FF; 
+    font-size: clamp(16px, 2vw, 26px);
+  }
+
+  .customFont {
+    font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
+    font-weight: 400; /* Adjust font-weight as necessary */
+    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    color: #0ABCC1; 
+  }
+  
+  .customFontbig {
+    font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
+    font-weight: 400; /* Adjust font-weight as necessary */
+    font-size: clamp(25px, 2vw, 40px); /* Matches the surrounding text's size */
+  }
+  
+  .customFontcolor {
+    font-weight: 800; /* Adjust font-weight as necessary */
+    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    color: #0ABCC1; 
+  }
+  .customFontcolor2 {
+    font-weight: 800; /* Adjust font-weight as necessary */
+    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    color: #5BA5F1; 
+  }
