@@ -137,7 +137,7 @@ export default function Home() {
           <h2 className={styles.aboutMeTitle}>ABOUT ME / </h2>
           <div className={styles.textAndImageContainer}>
             <div className={styles.aboutMeText}>
-              Hi, I'm <span className={styles.customFontbig}>Inès Beaunoir</span>, 
+              Hi, I am <span className={styles.customFontbig}>Inès Beaunoir</span>, 
               a <span className={styles.customFontcolor}> Creative technology student </span> 
               at the Institute for Future Technologies in Paris. <br />
               I love <span className={styles.customFont}> technologies</span> and <span className={styles.customFont}>innovation</span>. <br />
