@@ -197,10 +197,10 @@ export default function Home() {
                 <img src="/BRACELET.png" alt="Project 3" className={styles.projectImage} />
              
               <div className={styles.projectDescription}>
-                <h1>RUNNING BRACELET</h1>
+                <h1>OKSI</h1>
                 <div className={styles.divider}></div>
                 <h3>INNOVATION PROJECT</h3>
-                <p>A running coach that frees you from numbers to achieve your goals.</p>
+                <p>A bracelet coach for running that frees you from numbers to achieve your goals.</p>
                 <Link href="/running">
                   <button className={styles.learnMoreButton}>Learn More</button>
                 </Link>
@@ -298,7 +298,7 @@ export default function Home() {
           </h1>
           <div className={styles.contactContainer}>
             <div className={styles.formContainer}>
-              <h2 className={styles.aboutMeTitle}>GET IN TOUCH</h2>
+              <h2 className={styles.contactMeTitle}>GET IN TOUCH</h2>
               <form className={styles.contactForm}>
                 <label htmlFor="email">Email</label>
                 <input type="email" id="email" placeholder="Please enter your email" required />
@@ -310,7 +310,7 @@ export default function Home() {
               </form>
             </div>
             <div className={styles.mapContainer}>
-              <h2 className={styles.aboutMeTitle}>MY LOCATION</h2>
+              <h2 className={styles.contactMeTitle}>MY LOCATION</h2>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.0572704367494!2d2.2399123156771693!3d48.89267187928893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e7c16ec3a53%3A0xd589485799ae55db!2sLa%20D%C3%A9fense!5e0!3m2!1sen!2sfr!4v1689185688573!5m2!1sen!2sfr"
                 width="400"

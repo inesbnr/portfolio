@@ -343,7 +343,26 @@
   width: 100%; /* Make the image responsive */
   max-width: 450px; /* Set a max width for the image */
   height: auto;                   /* Garde les proportions de l'image */
-  align-items: center;border-radius: 50%;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .textAndImageContainer {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center-align text */
+  }
+
+  .aboutMeText {
+    max-width: 100%;
+    margin-bottom: 10px; /* Add spacing below text */
+    font-size: 3vw; /* Adjust font size for small screens */
+  }
+
+  .profileImage {
+    width: 130%; /* Reduce image size */
+    max-width: 500px; /* Optional: limit max width */
+    height: auto; 
+  }
 }
 
 /* Section de projets */
@@ -351,7 +370,8 @@
   display: flex;
   flex-direction: column; /* Stack the projects vertically */
   gap: 0px;               /* Adds space between the projects */
-  padding: 30px 40px;      /* Adds 20px padding on top/bottom and 30px on left/right */
+  padding: 15px 40px;      /* Adds 20px padding on top/bottom and 30px on left/right */
+  padding-top: 35px;
 }
 
 .projectsTitle {
@@ -364,8 +384,8 @@
 .projectContainer {
   display: flex;                     /* Utilise Flexbox pour le conteneur de projets */
   flex-direction: column;            /* Aligne les projets en colonne */
-  padding: 30px 0px; 
-  gap: 100px;                        /* Espacement entre les projets */
+  padding: 40px 0px; 
+  gap: 60px;                        /* Espacement entre les projets */
 }
 .project {
   display: flex;                     /* Utilise Flexbox pour chaque projet */
@@ -400,7 +420,7 @@
 
 .projectDescription h3 {
   font-size: clamp(20px, 2vw, 30px);                  /* Taille de la police pour le titre du projet */
-  color: #5BA5F1; 
+  color: #CCE5FF; 
   font-family: 'Bebas Neue', sans-serif;
   margin: 2;                        /* Retire les marges par défaut */
   padding-top: 15px; 
@@ -439,7 +459,7 @@
   max-width: 300px;       /* Limit the maximum width of the divider */
   height: 2px;            /* Set the height of the divider */
   background-color: #CCE5FF; /* Change this to your desired color */
-  margin: 5px 0;          /* Add some vertical spacing */
+  margin: 0px 0;          /* Add some vertical spacing */
   align-self: flex-start;  /* Aligns the divider to the left */
 }
 /* Style for the divider/bar on the right */
@@ -473,6 +493,33 @@
 
 }
 
+/* Media query for small screens (phones) */
+@media (max-width: 768px) {
+  .projectContainer {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align items */
+    text-align: center;   
+    gap: 30px;  
+    padding-top: 30px ;   
+    padding-bottom: 0px;                /* Espacement entre les projets */
+  }
+
+  .project {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center-align items */
+    text-align: center; /* Center text */
+  }
+
+  .projectImage {
+    width: 100%; /* Image takes full width */
+    margin-bottom: 15px; /* Add spacing below image */
+  }
+
+  .projectDescription {
+    width: 100%; /* Description takes full width */
+  }
+}
+
 /* SKILLS */
 .skillsSection {
   padding: 4rem 2rem;
@@ -498,7 +545,7 @@
 }
 
 .skillCard h3 {
-  font-size: clamp(20px, 2vw, 40px);;
+  font-size: clamp(20px, 2vw, 40px);
   margin-bottom: 1rem;
   color: #F4D1AE;
 }
@@ -510,7 +557,7 @@
 }
 
 .skillCard li {
-  font-size: clamp(16px, 2vw, 20px);;
+  font-size: clamp(16px, 2vw, 20px);
   color: #FFEFDE;
   margin-bottom: 0.5rem;
 }
@@ -583,7 +630,7 @@
   margin-bottom: 5px; /* Space between label and input */
   text-align: left;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
+  font-size: clamp(20px, 2vw, 30px);
 }
 
 .contactForm input,
@@ -617,6 +664,25 @@
   width: 100%; /* Make the iframe take the full width of the container */
   height: 330px; /* Adjust height as needed */
   margin-top: 20px;  
+}
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .contactContainer {
+    flex-direction: column; /* Empile les éléments */
+    gap: 20px; /* Espacement uniforme entre les sections */
+  }
+
+  .formContainer {
+    margin-bottom: 20px; /* Espacement entre le formulaire et la carte */
+    width: 100%; /* Assurez une largeur complète sur petits écrans */
+  }
+
+  .mapContainer {
+    height: auto; /* Ajuste la hauteur automatiquement */
+    width: 100%; /* Prend toute la largeur disponible */
+  }
+
 }
 
 .footer {
@@ -695,4 +761,11 @@
   font-size: clamp(30px, 5vw, 50px);   
   color: #F4D1AE  ;            /* Ajustez la taille de la police selon vos besoins */
   margin: 0;                          /* Retire les marges par défaut */
+}
+.contactMeTitle {
+
+  align-self: flex-start;          /* Positionne le titre en haut à gauche */
+  font-size: clamp(20px, 3vw, 50px);   
+  color: #C5D8D1  ;            /* Ajustez la taille de la police selon vos besoins */
+  margin: 0;                       /* Retire les marges par défaut */
 }
