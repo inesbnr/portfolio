@@ -312,7 +312,7 @@ export default function Home() {
             <div className={styles.mapContainer}>
               <h2 className={styles.contactMeTitle}>MY LOCATION</h2>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2625.0572704367494!2d2.2399123156771693!3d48.89267187928893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e7c16ec3a53%3A0xd589485799ae55db!2sLa%20D%C3%A9fense!5e0!3m2!1sen!2sfr!4v1689185688573!5m2!1sen!2sfr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.992237531098!2d2.2364918!3d48.8964851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e665002d2c6665%3A0x9595552cb384bd7!2sP%C3%B4le%20L%C3%A9onard%20de%20Vinci!5e0!3m2!1sfr!2sfr!4v1732619774799!5m2!1sfr!2sfr"
                 width="400"
                 height="200"
                 style={{ border: 0 }}

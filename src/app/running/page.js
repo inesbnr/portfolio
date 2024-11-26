@@ -73,21 +73,21 @@ export default function Running() {
 
         {/* Navigation Items (Desktop) */}
         <ul className={styles.navItems}>
-          <li><a href="#Home">Home</a></li>
-          <li><a href="#aboutme">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#aboutme">About Me</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#skills">Skills</a></li>
         </ul>
 
         {/* Contact Button */}
-        <a href="#contact" className={styles.contactButton}>GET IN TOUCH</a>
+        <a href="/#contact" className={styles.contactButton}>GET IN TOUCH</a>
 
         {/* Dropdown Menu (Mobile) */}
         <div className={`${styles.dropdown} ${dropdownVisible ? styles.active : ''}`}>
           <a href="/">Home</a>
-          <a href="#aboutme">About Me</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
+          <a href="/#aboutme">About Me</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#skills">Skills</a>
         </div>
       </header>
     </div>
@@ -120,9 +120,10 @@ export default function Running() {
          
             {/* Text Container */}
             <div className={styles.overviewText}>
-              <p>
-              My innovation project features a bracelet and socks designed to enhance running performance while reducing the risk of injury. They aim to coach and improve biomechanical efficiency and boost cardiovascular endurance for a safer, more effective running experience.
-              </p>
+            <p>
+  My innovation project features a <span className={styles.customFontbig}>bracelet</span> and <span className={styles.customFontbig}>socks</span> designed to enhance <span className={styles.customFontcolor}>running performance</span> while reducing the risk of <span className={styles.customFontcolor}>injury</span>. They aim to coach and improve <span className={styles.customFont}>biomechanical efficiency</span> and boost <span className={styles.customFont}>cardiovascular endurance</span> for a safer, more effective running experience.
+</p>
+
             </div>
 
             <h2 className={styles.aboutProjectSmall}>My vision /</h2>
@@ -130,8 +131,8 @@ export default function Running() {
          {/* Text Container */}
          <div className={styles.overviewText}>
            <p>
-           Design new ways for people to interact with
-           their own biosignals for health and performance improvements in sports
+           <span className={styles.customFontbigcolor}> Design new ways for people to interact with
+           their own biosignals for health and performance improvements in sports</span>
 
            </p>
          </div>
@@ -150,9 +151,7 @@ export default function Running() {
           </div>
           <div className={styles.overviewText}>
             <p>
-              My passion for <span className={styles.customFontcolor}>engineering</span> and <span className={styles.customFontcolor}>running</span> drives me to combine 
-            
-              Running has many benefits, including improved cardiovascular and mental health, as well as the opportunity to set goals and push limits. However, after experiencing an injury myself, and learning that 68.3% of runners face similar challenges, I wanted to create a solution to help prevent and manage injuries while still enjoying the benefits of running.
+            I'm passionate about both <span className={styles.customFontbig}>engineering</span> and <span className={styles.customFontbig}>running</span>, which inspired me to combine the two. <span className={styles.customFontcolor}>Running</span> offers many benefits, such as better <span className={styles.customFontcolor}>cardiovascular</span> and <span className={styles.customFontcolor}>mental health</span>, as well as the chance to <span className={styles.customFont}>set goals</span> and <span className={styles.customFont}>challenge yourself</span>. After experiencing an <span className={styles.customFontcolor}>injury</span> and learning that <span className={styles.customFontcolor}> 68.3% of runners </span> face similar issues, I wanted to create a solution to help <span className={styles.customFont}>prevent and manage injuries</span> while still enjoying all the <span className={styles.customFont}> benefits of running</span>.
             </p>
           </div>
           </div>
@@ -186,7 +185,13 @@ export default function Running() {
           <h2 className={styles.moreProjectSmall}>EMG and pressure textile sensors</h2>
             {/* Text Container */}
             <div className={styles.paragraphText}>
-            text?
+            <p>
+  The <span className={styles.customFontbig}>EMG sensor</span> detects muscle activity in the <span className={styles.customFontcolor2}>tibialis anterior</span> muscle. Three fabric electrodes are sewn into the socks to measure this activity.
+</p>
+<p>
+  The <span className={styles.customFontbig}>pressure sensor</span> detects the pressure and impacts under the foot while running. This data helps analyze factors like <span className={styles.customFontcolor2}>balance</span>, <span className={styles.customFontcolor2}>stride</span>, and <span className={styles.customFontcolor2}>cadence</span>.
+</p>
+
             </div>
             {/* Image Container */}
             <div className={styles.imageContainer}>
@@ -197,7 +202,15 @@ export default function Running() {
           <h2 className={styles.moreProjectSmall}>UX/UI interface prototypes</h2>
             {/* Text Container */}
             <div className={styles.paragraphText}>
-            text?
+            <p>
+  The  <span className={styles.customFontbig}>Smart Socks App </span>displays detailed analytics, such as 
+  <span className={styles.customFontcolor2}> distance</span>, 
+  <span className={styles.customFontcolor2}> speed</span>, and 
+  <span className={styles.customFontcolor2}> foot pressure</span>. The user can track their progress and adjust their 
+  <span className={styles.customFontcolor2}> training routine</span>.
+  Users can export their performance and health data as  
+  <span className={styles.customFontcolor2}> reports</span>, making it easy to share with healthcare professionals.
+</p>
             </div>
             {/* Image Container */}
             <div className={styles.imageContainer}>
@@ -208,7 +221,7 @@ export default function Running() {
           <h2 className={styles.moreProjectSmall}>System overview</h2>
             {/* Text Container */}
             <div className={styles.paragraphText}>
-            text?
+
             </div>
             {/* Image Container */}
             <div className={styles.imageContainer}>
@@ -238,13 +251,20 @@ export default function Running() {
           <h2 className={styles.moreProject2}>Prototyping Process /</h2>
           <h2 className={styles.moreProjectSmall2}>First prototypes</h2>
             {/* Text Container */}
-            <div className={styles.paragraphText}>
-            text?
+            <div className={styles.paragraphText2}>
+            <p>
+  The <span className={styles.customFontbig}>OKSI bracelet</span> provides <span className={styles.customFontcolor3}>real-time feedback</span> while running through 
+  <span className={styles.customFontcolor3}>LEDs</span> and <span className={styles.customFontcolor3}>vibrations</span>. 
+  It calculates the heartbeat rhythm (BPM) and cadence (SPM). Based on these two values, 
+  OKSI creates <span className={styles.customFontcolor3}>animations</span> to help runners adjust their 
+  <span className={styles.customFont2}> heartbeat rhythm</span> and <span className={styles.customFont2}>cadence</span>.
+</p>
+
             </div>
             {/* Image Container */}
             <div className={styles.imageContainer}>
               <img src="/bracelet_proto.png" alt="Prototypes" className={styles.longImage} />
-              <p className={styles.imageCaption}>First prototypes of Smart socks</p>
+              
         
           </div>
         
@@ -281,7 +301,7 @@ export default function Running() {
             <div className={styles.mapContainer}>
               <h2>MY LOCATION</h2>
               <iframe
-                src="https://www.google.com/maps/embed?...La%20Défense!"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.992237531098!2d2.2364918!3d48.8964851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e665002d2c6665%3A0x9595552cb384bd7!2sP%C3%B4le%20L%C3%A9onard%20de%20Vinci!5e0!3m2!1sfr!2sfr!4v1732619774799!5m2!1sfr!2sfr"
                 width="400"
                 height="200"
                 style={{ border: 0 }}
@@ -295,8 +315,13 @@ export default function Running() {
       </main>
 
       <footer className={styles.footer}>
-        <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
-      </footer>
+  <div className={styles.footerContent}>
+    <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
+    <a href="https://www.linkedin.com/in/ines-beaunoir/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
+      <img src="linkedIn.png" alt="LinkedIn" className={styles.linkedinLogo} />
+    </a>
+  </div>
+</footer>
     </div>
   );
 }

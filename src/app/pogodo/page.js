@@ -63,21 +63,21 @@ export default function Pogodo() {
 
         {/* Navigation Items (Desktop) */}
         <ul className={styles.navItems}>
-          <li><a href="#Home">Home</a></li>
-          <li><a href="#aboutme">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#aboutme">About Me</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#skills">Skills</a></li>
         </ul>
 
         {/* Contact Button */}
-        <a href="#contact" className={styles.contactButton}>GET IN TOUCH</a>
+        <a href="#/contact" className={styles.contactButton}>GET IN TOUCH</a>
 
         {/* Dropdown Menu (Mobile) */}
         <div className={`${styles.dropdown} ${dropdownVisible ? styles.active : ''}`}>
           <a href="/">Home</a>
-          <a href="#aboutme">About Me</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
+          <a href="/#aboutme">About Me</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#skills">Skills</a>
         </div>
       </header>
     </div>
@@ -165,8 +165,7 @@ export default function Pogodo() {
             {/* Image Container */}
             <div className={styles.imageContainer}>
               <img src="/pogodo_proto.png" alt="Prototypes" className={styles.longImage} />
-              <p className={styles.imageCaption}>First sketches of the POGODO</p>
-        
+              
           </div>
           <h2 className={styles.moreProjectSmall}>The product</h2>
 
@@ -204,13 +203,34 @@ Backers not only had the chance to own their very own <span className={styles.cu
 Every contribution brought us closer to our funding goal and played a vital role in the success of our campaign. <br />
 By supporting us, you are becoming an active part of this adventure, driven by an <span className={styles.customFontcolor2}>innovative vision</span> and a commitment to sustainable design!
 </p>
-            </div>
+</div>
+                
+
+<div className={styles.embedsContainer}>
+  {/* Video iframe */}
+  <iframe 
+    width="480" 
+    height="270" 
+    src="https://www.kickstarter.com/projects/pogodo/quickstarter-pogodo/widget/video.html" 
+    frameBorder="0" 
+    scrolling="no" 
+    title="Kickstarter Video">
+  </iframe>
+  <p>67 backers pledged €1,706 to help bring this project to life.</p>
+
+  <Link href="http://kck.st/3v0FGXO">
+    <button className={styles.learnMoreButton}>Click here to visit our campaign page</button>
+  </Link>
+</div>
+</div>
+
 
             {/* Image Container */}
             <div className={styles.imageContainer}>
+               {/* Kickstarter Video Embed */}
               <img src="/pogodo_leftfund.png" alt="Photo of POGODO" className={styles.smallImage} />
             </div>
-          </div>
+
 
           <h2 className={styles.moreProject}>PRODUCTION /</h2>
           <h2 className={styles.moreProjectSmall}>Fabrication process</h2>
@@ -280,7 +300,7 @@ With <span className={styles.customFontbig}>POGODO</span>, you’re choosing a p
             <div className={styles.mapContainer}>
               <h2>MY LOCATION</h2>
               <iframe
-                src="https://www.google.com/maps/embed?...La%20Défense!"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.992237531098!2d2.2364918!3d48.8964851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e665002d2c6665%3A0x9595552cb384bd7!2sP%C3%B4le%20L%C3%A9onard%20de%20Vinci!5e0!3m2!1sfr!2sfr!4v1732619774799!5m2!1sfr!2sfr"
                 width="400"
                 height="200"
                 style={{ border: 0 }}
@@ -294,8 +314,13 @@ With <span className={styles.customFontbig}>POGODO</span>, you’re choosing a p
       </main>
 
       <footer className={styles.footer}>
-        <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
-      </footer>
+  <div className={styles.footerContent}>
+    <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
+    <a href="https://www.linkedin.com/in/ines-beaunoir/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
+      <img src="linkedIn.png" alt="LinkedIn" className={styles.linkedinLogo} />
+    </a>
+  </div>
+</footer>
     </div>
   );
 }

@@ -63,21 +63,21 @@ export default function Artoflife() {
 
         {/* Navigation Items (Desktop) */}
         <ul className={styles.navItems}>
-          <li><a href="#Home">Home</a></li>
-          <li><a href="#aboutme">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#aboutme">About Me</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#skills">Skills</a></li>
         </ul>
 
         {/* Contact Button */}
-        <a href="#contact" className={styles.contactButton}>GET IN TOUCH</a>
+        <a href="/#contact" className={styles.contactButton}>GET IN TOUCH</a>
 
         {/* Dropdown Menu (Mobile) */}
         <div className={`${styles.dropdown} ${dropdownVisible ? styles.active : ''}`}>
           <a href="/">Home</a>
-          <a href="#aboutme">About Me</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
+          <a href="/#aboutme">About Me</a>
+          <a href="/#projects">Projects</a>
+          <a href="/#skills">Skills</a>
         </div>
       </header>
     </div>
@@ -264,7 +264,7 @@ The vision behind this project stems from the desire to create innovative ways f
             <div className={styles.mapContainer}>
               <h2>MY LOCATION</h2>
               <iframe
-                src="https://www.google.com/maps/embed?...La%20Défense!"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2622.992237531098!2d2.2364918!3d48.8964851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e665002d2c6665%3A0x9595552cb384bd7!2sP%C3%B4le%20L%C3%A9onard%20de%20Vinci!5e0!3m2!1sfr!2sfr!4v1732619774799!5m2!1sfr!2sfr"
                 width="400"
                 height="200"
                 style={{ border: 0 }}
@@ -278,8 +278,13 @@ The vision behind this project stems from the desire to create innovative ways f
       </main>
 
       <footer className={styles.footer}>
-        <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
-      </footer>
+  <div className={styles.footerContent}>
+    <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
+    <a href="https://www.linkedin.com/in/ines-beaunoir/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
+      <img src="linkedIn.png" alt="LinkedIn" className={styles.linkedinLogo} />
+    </a>
+  </div>
+</footer>
     </div>
   );
 }

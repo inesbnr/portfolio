@@ -148,8 +148,11 @@
 /* Conteneur de l'image */
 .imageContainer {
   position: relative;                 /* Conteneur pour positionner le texte */
-  display: block;                     /* Laisse l'image occuper toute la largeur */
-  width: 100%;                        /* S'étend sur 100% de la largeur parent */
+  display: flex;                      /* Utilisation de flexbox */
+  justify-content: center;            /* Centre horizontalement l'image */
+  align-items: center;                /* Centre verticalement l'image ou le contenu */
+  width: 100%;                        /* S'étend sur toute la largeur du parent */
+  overflow: hidden;                   /* Optionnel : masque le débordement */
 }
 
 .imageContainerDouble {
@@ -371,9 +374,11 @@ padding-top: 10vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .longImage {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
+  display: block; /* Supprime tout espacement ajouté par défaut */
+  max-width: 100%; /* Limite la largeur à celle du conteneur parent */
+  height: auto; /* Conserve les proportions de l'image */
+  margin: 0 auto; /* Centre horizontalement */
+  object-fit: contain; /* S'assure que l'image s'adapte dans le conteneur sans être coupée */
 }
 .longImageSocks {
   width: 100%;            /* Makes the images responsive */
@@ -397,7 +402,7 @@ padding-top: 10vh;
 }
 
 
- /* CONTACT PART */
+/* CONTACT PART */
 .contactSection {
   padding: 40px 20px; /* Add some padding */
   background-color: #12263A; /* Background color */
@@ -428,7 +433,7 @@ padding-top: 10vh;
   margin-bottom: 5px; /* Space between label and input */
   text-align: left;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px;
+  font-size: clamp(20px, 2vw, 30px);
 }
 
 .contactForm input,
@@ -464,9 +469,27 @@ padding-top: 10vh;
   margin-top: 20px;  
 }
 
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .contactContainer {
+    flex-direction: column; /* Empile les éléments */
+    gap: 20px; /* Espacement uniforme entre les sections */
+  }
 
-/* Footer styles */
+  .formContainer {
+    margin-bottom: 20px; /* Espacement entre le formulaire et la carte */
+    width: 100%; /* Assurez une largeur complète sur petits écrans */
+  }
+
+  .mapContainer {
+    height: auto; /* Ajuste la hauteur automatiquement */
+    width: 100%; /* Prend toute la largeur disponible */
+  }
+
+}
+
 .footer {
+/* Example background color */
   display: flex;                    /* Use flexbox for alignment */
   justify-content: center;          /* Center the logo horizontally */
   align-items: center;              /* Center the logo vertically */
@@ -474,16 +497,29 @@ padding-top: 10vh;
   background-color: #12263A;        /* Background color of the footer */
   position: relative;                /* Position relative if needed */
   bottom: 0;                        /* Align to the bottom */
-  width: 100%;                      /* Full width of the page */
+  width: 100%;  
 }
 
-/* Logo styles */
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .logo {
-  max-width: 150px;                /* Set max width for the logo */
-  height: auto;                    /* Maintain aspect ratio */
-  margin: 0 auto;                  /* Center the logo */
+  max-height: 50px;                /* Set max width for the logo */
+  width: auto;                    /* Maintain aspect ratio */
+  margin: auto;     
 }
 
+.linkedinLink {
+  margin-left: 20px; /* Space between logos */
+}
+
+.linkedinLogo {
+  height: 50px; /* Adjust the size of the LinkedIn logo */
+  width: auto;
+}
   
   /*Animations*/
   
@@ -527,6 +563,13 @@ padding-top: 10vh;
     color: #CCE5FF;                 /* Ajustez la taille de la police selon vos besoins */
     margin: 0;                       /* Retire les marges par défaut */
   }
+  .paragraphText2 {        /* Positionne le titre en haut à gauche */
+    
+    text-align: left;
+    font-size: clamp(16px, 2vw, 26px);
+    color: #FFEFDE;                 /* Ajustez la taille de la police selon vos besoins */
+    margin: 0;                       /* Retire les marges par défaut */
+  }
 
   .paragraphTexthalf {
     max-width: 50%; /* Limit the text width */
@@ -550,11 +593,24 @@ padding-top: 10vh;
     font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
     color: #0ABCC1; 
   }
+  .customFont2 {
+    font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
+    font-weight: 400; /* Adjust font-weight as necessary */
+    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    color: #F4D1AE; 
+  }
   
   .customFontbig {
     font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
     font-weight: 400; /* Adjust font-weight as necessary */
     font-size: clamp(25px, 2vw, 40px); /* Matches the surrounding text's size */
+  }
+
+  .customFontbigcolor {
+    font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
+    font-weight: 700; /* Adjust font-weight as necessary */
+    font-size: clamp(25px, 2vw, 50px); /* Matches the surrounding text's size */
+    text-align: center;
   }
   
   .customFontcolor {
@@ -567,3 +623,42 @@ padding-top: 10vh;
     font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
     color: #5BA5F1; 
   }
+  .customFontcolor3 {
+    font-weight: 800; /* Adjust font-weight as necessary */
+    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    color: #F4D1AE; 
+  }
+
+
+  .learnMoreButton {
+    font-size: clamp(16px, 2vw, 25px);; 
+    display: inline-block;        /* Makes the link behave like a button */
+    margin-top: 10px;            /* Add some space above the button */
+    padding: 10px 20px;          /* Padding for button */
+       /* Background color */
+    border: 1px solid #CCE5FF; /* White border */
+    color: #CCE5FF;                 /* Text color */                /* No border */
+    border-radius: 25px;         /* Rounded corners */
+    text-decoration: none;        /* Remove underline */
+    font-family: 'Montserrat', sans-serif; /* Font style */
+    text-align: center;          /* Center text */
+    background-color: #12263A;
+    transition: background-color 0.3s ease; /* Transition effect */
+  }
+  
+  .learnMoreButton:hover {
+    background-color: #5BA5F1;   /* Change background color on hover */
+    color: #CCE5FF;                 /* Text color */  
+    border: 1px solid #5BA5F1; /* White border */
+  
+  }
+
+  .embedsContainer {
+    display: flex;
+    flex-direction: column; /* Arrange les iframes en colonne */
+    align-items: center;    /* Centre horizontalement */
+    gap: 20px;              /* Espacement entre les iframes */
+  }
+  
+
+  
