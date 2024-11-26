@@ -13,8 +13,6 @@ import dynamic from 'next/dynamic';
 // Dynamically load the Three.js scene to avoid SSR issues
 const ThreeScene = dynamic(() => import('../components/ThreeScene'), { ssr: false });
 
-
-
 export default function Running() {
   const [scrollPos, setScrollPos] = useState(0);
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -159,7 +157,11 @@ export default function Running() {
 
           </section>
 
+          <section id="section3D" className={styles.section3D}>
           <ThreeScene/>
+          </section>
+
+          
 
           {/* Overview Section */}
         <section className={styles.section}>

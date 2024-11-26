@@ -297,6 +297,11 @@ padding-top: 10vh;
 .section {
   padding: 10px 20px;
 }
+.section3D {
+  position: relative;  
+  padding: 10px 0;
+  align-items: center;
+}
 
 .aboutProject {
 
@@ -659,6 +664,4 @@ padding-top: 10vh;
     align-items: center;    /* Centre horizontalement */
     gap: 20px;              /* Espacement entre les iframes */
   }
-  
-
   
