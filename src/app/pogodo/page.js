@@ -4,10 +4,18 @@
 import Link from "next/link";
 import styles from "../project.module.css";
 import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimation } from 'framer-motion';
+import Lenis from 'lenis';
 
 export default function Pogodo() {
+  const [hovered, setHovered] = useState(false); // State to track hover
+
+  const { scrollYProgress } = useScroll(); // This gives the scroll progress
+  const yRange = useTransform(scrollYProgress, [0, 1], [0, 100]); // Controls how much the image moves based on scroll
+
+  
   const [scrollPos, setScrollPos] = useState(0);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const controls = useAnimation(); // Animation control
 
   // Update scroll position
   useEffect(() => {
@@ -21,6 +29,28 @@ export default function Pogodo() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Effect to trigger animation based on scroll position
+  useEffect(() => {
+    // Adjust this range for when you want the animation to trigger based on scroll
+    if (scrollPos > 100) {
+      controls.start({ x: (scrollPos-150)/10, opacity: 1 }); // Move the element to original position and set opacity to 1
+    } else {
+      controls.start({ x: -100, opacity: 0 }); // Move the element off-screen to the left and make it transparent
+    }
+  }, [scrollPos, controls]);
+
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  useEffect( () => {
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  }, [])
 
   // Handle window resize for large screens
   useEffect(() => {
@@ -44,13 +74,10 @@ export default function Pogodo() {
     setDropdownVisible(!dropdownVisible);
   };
 
-  
-  const translateX = scrollPos / 10; // Adjust divisor for speed
 
 
   return (
     <div className={styles.container}>
-      {/* Navbar */}
       <div>
       {/* Navbar */}
       <header className={styles.navbar}>
@@ -63,21 +90,21 @@ export default function Pogodo() {
 
         {/* Navigation Items (Desktop) */}
         <ul className={styles.navItems}>
-          <li><a href="/">Home</a></li>
-          <li><a href="/#aboutme">About Me</a></li>
-          <li><a href="/#projects">Projects</a></li>
-          <li><a href="/#skills">Skills</a></li>
+          <li><a href="/" >Home</a></li>
+          <li><a href="#aboutme">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
         </ul>
 
         {/* Contact Button */}
-        <a href="#/contact" className={styles.contactButton}>GET IN TOUCH</a>
+        <a href="/#contact" onClick={toggleDropdown} className={styles.contactButton}>GET IN TOUCH</a>
 
         {/* Dropdown Menu (Mobile) */}
         <div className={`${styles.dropdown} ${dropdownVisible ? styles.active : ''}`}>
-          <a href="/">Home</a>
-          <a href="/#aboutme">About Me</a>
-          <a href="/#projects">Projects</a>
-          <a href="/#skills">Skills</a>
+          <a href="/" onClick={toggleDropdown}>Home</a>
+          <a href="/#aboutme" onClick={toggleDropdown}>About Me</a>
+          <a href="/#projects" onClick={toggleDropdown}>Projects</a>
+          <a href="/#skills" onClick={toggleDropdown}>Skills</a>
         </div>
       </header>
     </div>
@@ -100,12 +127,15 @@ export default function Pogodo() {
 
         {/* Overview Section */}
         <section className={styles.section}>
-          <h1
-            className={`${styles.separator} ${styles.outlinedOverview}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW
-          </h1>
+        <motion.h1
+        className={`${styles.separator} ${styles.outlinedOverview}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+       OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW
+      </motion.h1>
+          
           <h2 className={styles.aboutProject}>ABOUT POGODO /</h2>
           <div className={styles.textAndImageContainer}>
             {/* Text Container */}
@@ -135,10 +165,10 @@ export default function Pogodo() {
     
           </div>
           <div className={styles.overviewText}>
-            <p>
+
               Meet the <span className={styles.customFontbig}> POGODO Team </span>, where expertise and motivation come together to create <span className={styles.customFontcolor}>ingenious solutions</span>. <br />
-              Our passion for <span className={styles.customFontcolor}>engineering</span> and <span className={styles.customFontcolor}>creativity</span> drives us to combine practicality and design in every detail of  <span className={styles.customFontbig}>   POGODO </span>.
-            </p>
+              Our passion for <span className={styles.customFontcolor}>engineering</span> and <span className={styles.customFontcolor}>creativity</span> drives us to combine practicality and design in every detail of  <span className={styles.customFontbig}>   POGODO</span>.
+
           </div>
           </div>
 
@@ -147,12 +177,15 @@ export default function Pogodo() {
 
           {/* Overview Section */}
         <section className={styles.section}>
-          <h1
-            className={`${styles.separator} ${styles.outlinedProcess}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            PROCESS • PROCESS • PROCESS • PROCESS • PROCESS • PROCESS
-          </h1>
+        <motion.h1
+        className={`${styles.separator} ${styles.outlinedProcess}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+       PROCESS • PROCESS • PROCESS • PROCESS • PROCESS • PROCESS
+      </motion.h1>
+         
           <h2 className={styles.moreProject}>Prototyping Process /</h2>
           <h2 className={styles.moreProjectSmall}>How it started</h2>
             {/* Text Container */}
@@ -171,8 +204,8 @@ export default function Pogodo() {
 
           <div className={styles.textAndImageContainer}>
             {/* Text Container */}
-            <div className={styles.paragraphTexthalf}>
-              <p>
+            <div className={styles.overviewText2}>
+
               <span className={styles.customFontbig}>What’s in the Kit?</span> <br />
 • <span className={styles.customFontcolor2}>1 large handle:</span> Enables you to wear your <span className={styles.customFontbig}>POGODO</span> long or short, adapting to your preference. <br />
 • <span className={styles.customFontcolor2}>1 main lanyard:</span> Designed with strategically positioned notches, it securely fastens your entire <span className={styles.customFontbig}>POGODO</span> together for reliable use. <br />
@@ -181,7 +214,7 @@ export default function Pogodo() {
 <br />
 Experience the perfect balance of functionality, adaptability, and style with the <span className={styles.customFontbig}>POGODO</span> kit!
 
-              </p>
+
             </div>
 
             {/* Image Container */}
@@ -192,21 +225,9 @@ Experience the perfect balance of functionality, adaptability, and style with th
 
           <h2 className={styles.moreProject}>Funding goals /</h2>
           <h2 className={styles.moreProjectSmall}>Our campaign</h2>
-          <div className={styles.textAndImageContainer}>
-            {/* Text Container */}
-            <div className={styles.paragraphTexthalf}>
-            
-              <p>
-                
-              We launched a crowdfunding campaign on <span className={styles.customFontcolor2}>Kickstarter</span> to bring our vision of <span className={styles.customFontbig}>POGODO</span> to life. <br />
-Backers not only had the chance to own their very own <span className={styles.customFontbig}>POGODO</span>, but they could also amplify their impact by making a donation. <br />
-Every contribution brought us closer to our funding goal and played a vital role in the success of our campaign. <br />
-By supporting us, you are becoming an active part of this adventure, driven by an <span className={styles.customFontcolor2}>innovative vision</span> and a commitment to sustainable design!
-</p>
-</div>
-                
 
-<div className={styles.embedsContainer}>
+          <div className={styles.textAndImageContainer}>
+          <div className={styles.embedsContainer}>
   {/* Video iframe */}
   <iframe 
     width="480" 
@@ -216,20 +237,24 @@ By supporting us, you are becoming an active part of this adventure, driven by a
     scrolling="no" 
     title="Kickstarter Video">
   </iframe>
-  <p>67 backers pledged €1,706 to help bring this project to life.</p>
+  
+</div>
 
+          <div className={styles.overviewText2}>
+
+          We launched a crowdfunding campaign on <span className={styles.customFontcolor2}>Kickstarter</span> to bring our vision of <span className={styles.customFontbig}>POGODO</span> to life. <br />
+Backers not only had the chance to own their very own <span className={styles.customFontbig}>POGODO</span>, but they could also amplify their impact by making a donation. <br />
+Every contribution brought us closer to our funding goal and played a vital role in the success of our campaign. <br />
+By supporting us, you are becoming an active part of this adventure, driven by an <span className={styles.customFontcolor2}>innovative vision</span> and a commitment to sustainable design!
+
+          </div>
+          </div>
+          
   <Link href="http://kck.st/3v0FGXO">
     <button className={styles.learnMoreButton}>Click here to visit our campaign page</button>
   </Link>
-</div>
-</div>
+  <div className={styles.overviewText2center}><span className={styles.customFontbig}>67 backers</span> pledged <span className={styles.customFontbig}>€1,706</span> to help bring this project to life</div>
 
-
-            {/* Image Container */}
-            <div className={styles.imageContainer}>
-               {/* Kickstarter Video Embed */}
-              <img src="/pogodo_leftfund.png" alt="Photo of POGODO" className={styles.smallImage} />
-            </div>
 
 
           <h2 className={styles.moreProject}>PRODUCTION /</h2>
@@ -275,12 +300,15 @@ With <span className={styles.customFontbig}>POGODO</span>, you’re choosing a p
         {/* Contact Section */}
         
         <section className={styles.contactSection}>
-        <h1
-            className={`${styles.separator} ${styles.outlinedContact}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME
-          </h1>
+        <motion.h1
+        className={`${styles.separator} ${styles.outlinedContact}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+       CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME
+      </motion.h1>
+        
           <div className={styles.contactContainer}>
             <div className={styles.formContainer}>
               <h2>GET IN TOUCH</h2>

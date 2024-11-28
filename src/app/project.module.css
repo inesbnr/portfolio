@@ -82,12 +82,14 @@
   display: none; /* Hidden by default */
   flex-direction: column;
   position: absolute;
-  top: 60px;
+  align-items: center;
+  top: 50px;
   left: 0; /* Aligns the dropdown to the left */
   background-color: #12263A;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  width: 150px;
+  border-top: #12263A;
+  border-bottom: 1px solid #fff;
+  border-radius: 0px;
+  width: 100%;
   padding: 10px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -103,8 +105,8 @@
 }
 
 .dropdown a:hover {
-  background-color: #0ABCC1;
-  color: #12263A;
+
+  color: #0ABCC1;
 }
 
 /* Show the dropdown menu when active */
@@ -113,7 +115,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 766px) {
   .navItems {
     display: none; /* Hide desktop nav items */
   }
@@ -124,7 +126,7 @@
 }
 
 /* For larger screens (tablets and desktops) */
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .hamburger {
     display: none; /* Hide hamburger icon on large screens */
   }
@@ -293,9 +295,19 @@ padding-top: 10vh;
       left: -15vw; /* Adjust initial position */
   }
   
-  /* Overview Section */
+ /* General padding for larger screens */
 .section {
-  padding: 10px 20px;
+  padding: 10px 0; /* Top and bottom padding */
+  padding-left: 20px; /* Normal left padding for larger screens */
+  padding-right: 20px; /* Normal right padding for larger screens */
+}
+
+/* Adjust padding for small phone screens */
+@media (max-width: 576px) { /* Adjust breakpoint as needed */
+  .section {
+    padding-left: 10px; /* Reduced left padding for smaller screens */
+    padding-right: 10px; /* Reduced right padding for smaller screens */
+  }
 }
 .section3D {
   position: relative;  
@@ -314,9 +326,9 @@ padding-top: 10vh;
 .aboutProjectSmall {
 
   text-align: left;          /* Positionne le titre en haut à gauche */
-  font-size: clamp(20px, 3vw, 40px);   
+  font-size: clamp(20px, 2vw, 40px);   
   color: #0ABCC1  ;            /* Ajustez la taille de la police selon vos besoins */
-  padding: 10px 0;                       /* Retire les marges par défaut */
+  padding: 1.5vw 0;                       /* Retire les marges par défaut */
 }
 .moreProject {
   text-align: left;        /* Positionne le titre en haut à gauche */
@@ -353,14 +365,71 @@ padding-top: 10vh;
   gap: 20px;
   flex-wrap: wrap; /* Ensures proper layout on smaller screens */
 }
+@media (max-width: 600px) {
+  .textAndImageContainer {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center-align text */
+    gap: 10px;
+  }
+
+  .aboutProjectSmall {
+
+    
+            /* Ajustez la taille de la police selon vos besoins */
+    padding: 25px 0;                       /* Retire les marges par défaut */
+  }
+
+  .overviewText {
+    max-width: 100%;
+    padding-top: 1vh;
+    
+  }
+  .overviewText {
+    max-width: 100%;
+    padding-top: 1vh;
+    
+  }
+
+  .smallImage {
+    width: 75%; /* Reduce image size */
+    height: auto; 
+  }
+}
 
 .overviewText {
   flex: 1;
-  font-size: clamp(16px, 2vw, 26px);
+  font-size: clamp(16px, 1.5vw, 26px);
   font-family: Montserrat;
   line-height: 1.6;
   color: #D1FEFF;
   text-align: left;
+  max-width: 100%;
+  padding-top: 1vh;
+    
+
+ 
+}
+.overviewText2 {
+  flex: 1;
+  font-size: clamp(16px, 1.5vw, 26px);
+  font-family: Montserrat;
+  line-height: 1.6;
+  color: #CCE5FF; 
+  text-align: left;
+  max-width: 100%;
+  padding-top: 1vh;
+  
+}
+.overviewText2center {
+  flex: 1;
+  font-size: clamp(16px, 1.5vw, 26px);
+  font-family: Montserrat;
+  line-height: 1.6;
+  color: #CCE5FF; 
+  text-align: center;
+  max-width: 100%;
+  padding: 5px;
+  
 }
 
 .imageContainer {
@@ -373,17 +442,32 @@ padding-top: 10vh;
 }
 
 .smallImage {
-  max-width: 100%;
-  height: auto;
+  width: 80%; /* Ensures the image takes full width of its container */
+  max-width: 600px; /* Sets a maximum width for larger screens */
+  height: auto; /* Maintains the aspect ratio */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto; /* Centers the image within its container if needed */
 }
+
+/* Responsive adjustment for smaller screens */
+
 .longImage {
   display: block; /* Supprime tout espacement ajouté par défaut */
   max-width: 100%; /* Limite la largeur à celle du conteneur parent */
   height: auto; /* Conserve les proportions de l'image */
   margin: 0 auto; /* Centre horizontalement */
   object-fit: contain; /* S'assure que l'image s'adapte dans le conteneur sans être coupée */
+  padding: 3vh 2vw;
+}
+.longimageround {
+  display: block; /* Supprime tout espacement ajouté par défaut */
+  width: 100%; /* Limite la largeur à celle du conteneur parent */
+  height: auto; /* Conserve les proportions de l'image */
+  margin: 0 auto; /* Centre horizontalement */
+  /* S'assure que l'image s'adapte dans le conteneur sans être coupée */
+  padding: 3vh 2vw;
+  border-radius: 50px;
+  opacity: 0.80;
 }
 .longImageSocks {
   width: 100%;            /* Makes the images responsive */
@@ -437,7 +521,7 @@ padding-top: 10vh;
 .contactForm label {
   margin-bottom: 5px; /* Space between label and input */
   text-align: left;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: clamp(20px, 2vw, 30px);
 }
 
@@ -562,16 +646,17 @@ padding-top: 10vh;
 
 
   .paragraphText {        /* Positionne le titre en haut à gauche */
-    
+    max-width: 100%;
+    padding-top: 1vh;
     text-align: left;
-    font-size: clamp(16px, 2vw, 26px);
+    font-size: clamp(16px, 1.5vw, 26px);
     color: #CCE5FF;                 /* Ajustez la taille de la police selon vos besoins */
     margin: 0;                       /* Retire les marges par défaut */
   }
   .paragraphText2 {        /* Positionne le titre en haut à gauche */
     
     text-align: left;
-    font-size: clamp(16px, 2vw, 26px);
+    font-size: clamp(16px, 1.5vw, 26px);
     color: #FFEFDE;                 /* Ajustez la taille de la police selon vos besoins */
     margin: 0;                       /* Retire les marges par défaut */
   }
@@ -579,7 +664,7 @@ padding-top: 10vh;
   .paragraphTexthalf {
     max-width: 50%; /* Limit the text width */
     text-align: left;
-    font-size: clamp(16px, 2vw, 26px);
+    font-size: clamp(16px, 1.5vw, 26px);
     color: #CCE5FF;                 /* Ajustez la taille de la police selon vos besoins */
     margin: 0; 
   }
@@ -589,48 +674,48 @@ padding-top: 10vh;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     color: #CCE5FF; 
-    font-size: clamp(16px, 2vw, 26px);
+    font-size: clamp(16px, 1.5vw, 26px);
   }
 
   .customFont {
     font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
     font-weight: 400; /* Adjust font-weight as necessary */
-    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    font-size: clamp(16px, 1.5vw, 26px); /* Matches the surrounding text's size */
     color: #0ABCC1; 
   }
   .customFont2 {
     font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
     font-weight: 400; /* Adjust font-weight as necessary */
-    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    font-size: clamp(16px, 1.5vw, 26px); /* Matches the surrounding text's size */
     color: #F4D1AE; 
   }
   
   .customFontbig {
     font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
     font-weight: 400; /* Adjust font-weight as necessary */
-    font-size: clamp(25px, 2vw, 40px); /* Matches the surrounding text's size */
+    font-size: clamp(16px, 1.5vw, 26px); /* Matches the surrounding text's size */
   }
 
   .customFontbigcolor {
     font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
     font-weight: 700; /* Adjust font-weight as necessary */
-    font-size: clamp(25px, 2vw, 50px); /* Matches the surrounding text's size */
+    font-size: clamp(16px, 1.5vw, 26px); /* Matches the surrounding text's size */
     text-align: center;
   }
   
   .customFontcolor {
     font-weight: 800; /* Adjust font-weight as necessary */
-    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    font-size: clamp(16px, 1.5vw, 26px); /* Matches the surrounding text's size */
     color: #0ABCC1; 
   }
   .customFontcolor2 {
     font-weight: 800; /* Adjust font-weight as necessary */
-    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    font-size: clamp(16px, 1.5vw, 26px); /* Matches the surrounding text's size */
     color: #5BA5F1; 
   }
   .customFontcolor3 {
     font-weight: 800; /* Adjust font-weight as necessary */
-    font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+    font-size: clamp(16px, 1.5vw, 26px); /* Matches the surrounding text's size */
     color: #F4D1AE; 
   }
 
@@ -638,7 +723,8 @@ padding-top: 10vh;
   .learnMoreButton {
     font-size: clamp(16px, 2vw, 25px);; 
     display: inline-block;        /* Makes the link behave like a button */
-    margin-top: 10px;            /* Add some space above the button */
+    margin-top: 10px;      
+    margin-bottom: 10px;      /* Add some space above the button */
     padding: 10px 20px;          /* Padding for button */
        /* Background color */
     border: 1px solid #CCE5FF; /* White border */

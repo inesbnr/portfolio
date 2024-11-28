@@ -226,8 +226,17 @@ export default function Home() {
       >
        PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS • PROJECTS
       </motion.h1>
+      <motion.h2
+            className={styles.myProjectsTitle}
+            initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
+            whileInView={{ opacity: 1 }} // Fade in to full opacity when in view
+            viewport={{ once: true, amount: 0.5 }} // Trigger when 20% of the element is in view
+            transition={{ duration: 2, ease: "easeOut" }} // Duration of the fade-in animation
+          >
+            MY PROJECTS /
+          </motion.h2>
 
-          <h2 className={styles.myProjectsTitle}>MY PROJECTS / </h2>
+          
           <div className={styles.projectContainer}>
             {/* Project 1 */}
             <motion.div
@@ -336,8 +345,18 @@ export default function Home() {
        EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION 
 
       </motion.h1>
-         
-            <h2 className={styles.expTitle}>MY STUDIES /</h2>
+
+      <motion.h2
+            className={styles.expTitle}
+            initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
+            whileInView={{ opacity: 1 }} // Fade in to full opacity when in view
+            viewport={{ once: true, amount: 0.5 }} // Trigger when 20% of the element is in view
+            transition={{ duration: 2, ease: "easeOut" }} // Duration of the fade-in animation
+          >
+            MY STUDIES /
+          </motion.h2>
+
+       
 
             <div className={styles.expDescription}>
   <h3>
@@ -392,8 +411,17 @@ export default function Home() {
        WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES
 
       </motion.h1>
+      <motion.h2
+            className={styles.expTitle}
+            initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
+            whileInView={{ opacity: 1 }} // Fade in to full opacity when in view
+            viewport={{ once: true, amount: 0.5 }} // Trigger when 20% of the element is in view
+            transition={{ duration: 2, ease: "easeOut" }} // Duration of the fade-in animation
+          >
+            MY EXPERIENCES /
+          </motion.h2>
          
-            <h2 className={styles.expTitle}>MY EXPERIENCES /</h2>
+      
             <div className={styles.expDescription}>
   <h3>
     <span className={styles.year}>2024</span>
@@ -447,16 +475,18 @@ export default function Home() {
        SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS
 
       </motion.h1>
-         
+
       <motion.h2
-        className={styles.mySkillsTitle}
-        initial={{ opacity: 0, y: -50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        MY SKILLS /
-      </motion.h2>
+            className={styles.mySkillsTitle}
+            initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
+            whileInView={{ opacity: 1 }} // Fade in to full opacity when in view
+            viewport={{ once: true, amount: 0.5 }} // Trigger when 20% of the element is in view
+            transition={{ duration: 2, ease: "easeOut" }} // Duration of the fade-in animation
+          >
+          MY SKILLS /
+          </motion.h2>
+         
+      
 
       <motion.div
   className={styles.skillsContainer}

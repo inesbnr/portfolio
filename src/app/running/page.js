@@ -7,15 +7,24 @@ import { useEffect, useRef, useState } from "react";
 
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, PerspectiveCamera } from '@react-three/drei';
-// pages/index.js
+
+import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimation } from 'framer-motion';
+import Lenis from 'lenis';
 import dynamic from 'next/dynamic';
 
 // Dynamically load the Three.js scene to avoid SSR issues
 const ThreeScene = dynamic(() => import('../components/ThreeScene'), { ssr: false });
 
 export default function Running() {
+  
+  const [hovered, setHovered] = useState(false); // State to track hover
+
+  const { scrollYProgress } = useScroll(); // This gives the scroll progress
+  const yRange = useTransform(scrollYProgress, [0, 1], [0, 100]); // Controls how much the image moves based on scroll
+
+  
   const [scrollPos, setScrollPos] = useState(0);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const controls = useAnimation(); // Animation control
 
   // Update scroll position
   useEffect(() => {
@@ -29,6 +38,28 @@ export default function Running() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Effect to trigger animation based on scroll position
+  useEffect(() => {
+    // Adjust this range for when you want the animation to trigger based on scroll
+    if (scrollPos > 100) {
+      controls.start({ x: (scrollPos-150)/10, opacity: 1 }); // Move the element to original position and set opacity to 1
+    } else {
+      controls.start({ x: -100, opacity: 0 }); // Move the element off-screen to the left and make it transparent
+    }
+  }, [scrollPos, controls]);
+
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  useEffect( () => {
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  }, [])
 
   // Handle window resize for large screens
   useEffect(() => {
@@ -52,10 +83,6 @@ export default function Running() {
     setDropdownVisible(!dropdownVisible);
   };
 
-  
-  const translateX = scrollPos / 10; // Adjust divisor for speed
-
-
   return (
     <div className={styles.container}>
       {/* Navbar */}
@@ -71,21 +98,21 @@ export default function Running() {
 
         {/* Navigation Items (Desktop) */}
         <ul className={styles.navItems}>
-          <li><a href="/">Home</a></li>
-          <li><a href="/#aboutme">About Me</a></li>
-          <li><a href="/#projects">Projects</a></li>
-          <li><a href="/#skills">Skills</a></li>
+          <li><a href="/" >Home</a></li>
+          <li><a href="#aboutme">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
         </ul>
 
         {/* Contact Button */}
-        <a href="/#contact" className={styles.contactButton}>GET IN TOUCH</a>
+        <a href="/#contact" onClick={toggleDropdown} className={styles.contactButton}>GET IN TOUCH</a>
 
         {/* Dropdown Menu (Mobile) */}
         <div className={`${styles.dropdown} ${dropdownVisible ? styles.active : ''}`}>
-          <a href="/">Home</a>
-          <a href="/#aboutme">About Me</a>
-          <a href="/#projects">Projects</a>
-          <a href="/#skills">Skills</a>
+          <a href="/" onClick={toggleDropdown}>Home</a>
+          <a href="/#aboutme" onClick={toggleDropdown}>About Me</a>
+          <a href="/#projects" onClick={toggleDropdown}>Projects</a>
+          <a href="/#skills" onClick={toggleDropdown}>Skills</a>
         </div>
       </header>
     </div>
@@ -108,12 +135,14 @@ export default function Running() {
 
         {/* Overview Section */}
         <section className={styles.section}>
-          <h1
-            className={`${styles.separator} ${styles.outlinedOverview}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW
-          </h1>
+        <motion.h1
+        className={`${styles.separator} ${styles.outlinedOverview}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+       OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW
+      </motion.h1>
           <h2 className={styles.aboutProject}>ABOUT OKSI & Smart Socks /</h2>
          
             {/* Text Container */}
@@ -165,12 +194,15 @@ export default function Running() {
 
           {/* Overview Section */}
         <section className={styles.section}>
-          <h1
-            className={`${styles.separator} ${styles.outlinedProcess}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            SMART SOCKS • SMART SOCKS • SMART SOCKS • SMART SOCKS • SMART SOCKS • SMART SOCKS
-          </h1>
+        <motion.h1
+        className={`${styles.separator} ${styles.outlinedProcess}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+ SMART SOCKS • SMART SOCKS • SMART SOCKS • SMART SOCKS • SMART SOCKS • SMART SOCKS
+      </motion.h1>
+         
           <h2 className={styles.moreProject}>Our Goal /</h2>
           <h2 className={styles.moreProjectSmall}>Target Users and Needs</h2>
             {/* Text Container */}
@@ -231,13 +263,16 @@ export default function Running() {
               
         
           </div>
+          <motion.h1
+        className={`${styles.separator} ${styles.outlinedProcess}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+       OKSI BRACELET • OKSI BRACELET • OKSI BRACELET • OKSI BRACELET • OKSI BRACELET • OKSI BRACELET
+      </motion.h1>
 
-          <h1
-            className={`${styles.separator} ${styles.outlinedProcess}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            OKSI BRACELET • OKSI BRACELET • OKSI BRACELET • OKSI BRACELET • OKSI BRACELET • OKSI BRACELET
-          </h1>
+         
           <h2 className={styles.moreProject2}>Our Goal /</h2>
           <h2 className={styles.moreProjectSmall2}>Target Users and Needs</h2>
             {/* Text Container */}
@@ -278,12 +313,14 @@ export default function Running() {
         {/* Contact Section */}
         
         <section className={styles.contactSection}>
-        <h1
-            className={`${styles.separator} ${styles.outlinedContact}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME
-          </h1>
+        <motion.h1
+        className={`${styles.separator} ${styles.outlinedContact}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+       CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME
+      </motion.h1>
           <div className={styles.contactContainer}>
             <div className={styles.formContainer}>
               <h2>GET IN TOUCH</h2>

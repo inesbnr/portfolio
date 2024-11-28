@@ -4,10 +4,18 @@
 import Link from "next/link";
 import styles from "../project.module.css";
 import { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimation } from 'framer-motion';
+import Lenis from 'lenis';
 
 export default function Artoflife() {
+  const [hovered, setHovered] = useState(false); // State to track hover
+
+  const { scrollYProgress } = useScroll(); // This gives the scroll progress
+  const yRange = useTransform(scrollYProgress, [0, 1], [0, 100]); // Controls how much the image moves based on scroll
+
+  
   const [scrollPos, setScrollPos] = useState(0);
-  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const controls = useAnimation(); // Animation control
 
   // Update scroll position
   useEffect(() => {
@@ -21,6 +29,28 @@ export default function Artoflife() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Effect to trigger animation based on scroll position
+  useEffect(() => {
+    // Adjust this range for when you want the animation to trigger based on scroll
+    if (scrollPos > 100) {
+      controls.start({ x: (scrollPos-150)/10, opacity: 1 }); // Move the element to original position and set opacity to 1
+    } else {
+      controls.start({ x: -100, opacity: 0 }); // Move the element off-screen to the left and make it transparent
+    }
+  }, [scrollPos, controls]);
+
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  useEffect( () => {
+    const lenis = new Lenis()
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+  }, [])
 
   // Handle window resize for large screens
   useEffect(() => {
@@ -44,9 +74,6 @@ export default function Artoflife() {
     setDropdownVisible(!dropdownVisible);
   };
 
-  
-  const translateX = scrollPos / 10; // Adjust divisor for speed
-
 
   return (
     <div className={styles.container}>
@@ -63,21 +90,21 @@ export default function Artoflife() {
 
         {/* Navigation Items (Desktop) */}
         <ul className={styles.navItems}>
-          <li><a href="/">Home</a></li>
-          <li><a href="/#aboutme">About Me</a></li>
-          <li><a href="/#projects">Projects</a></li>
-          <li><a href="/#skills">Skills</a></li>
+          <li><a href="/" >Home</a></li>
+          <li><a href="#aboutme">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
         </ul>
 
         {/* Contact Button */}
-        <a href="/#contact" className={styles.contactButton}>GET IN TOUCH</a>
+        <a href="#contact" onClick={toggleDropdown} className={styles.contactButton}>GET IN TOUCH</a>
 
         {/* Dropdown Menu (Mobile) */}
         <div className={`${styles.dropdown} ${dropdownVisible ? styles.active : ''}`}>
-          <a href="/">Home</a>
-          <a href="/#aboutme">About Me</a>
-          <a href="/#projects">Projects</a>
-          <a href="/#skills">Skills</a>
+          <a href="/" onClick={toggleDropdown}>Home</a>
+          <a href="/#aboutme" onClick={toggleDropdown}>About Me</a>
+          <a href="/#projects" onClick={toggleDropdown}>Projects</a>
+          <a href="/#skills" onClick={toggleDropdown}>Skills</a>
         </div>
       </header>
     </div>
@@ -87,7 +114,7 @@ export default function Artoflife() {
         <section className={styles.welcomeSectionProject}>
           <div className={styles.imageContainer}>
             <div className={styles.textOverlay}>
-              <h1 className={styles.mainTitleProject}>Interactive light projection</h1>
+              <h1 className={styles.mainTitleProject}></h1>
               <h2 className={styles.subTitleProject2}></h2>
             </div>
             <img
@@ -100,12 +127,14 @@ export default function Artoflife() {
 
         {/* Overview Section */}
         <section className={styles.section}>
-          <h1
-            className={`${styles.separator} ${styles.outlinedOverview}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW
-          </h1>
+        <motion.h1
+        className={`${styles.separator} ${styles.outlinedOverview}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+       OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW • OVERVIEW
+      </motion.h1>
           <h2 className={styles.aboutProject}>ABOUT ART OF LIFE /</h2>
           <div className={styles.textAndImageContainer}>
             {/* Text Container */}
@@ -121,7 +150,7 @@ The vision behind this project stems from the desire to create innovative ways f
 
             {/* Image Container */}
             <div className={styles.imageContainer}>
-              <img src="/pogodo1.png" alt="Photo of POGODO" className={styles.smallImage} />
+              <img src="/aol_1.png" alt="Photo of POGODO" className={styles.smallImage} />
             </div>
           </div>
         
@@ -149,12 +178,14 @@ The vision behind this project stems from the desire to create innovative ways f
 
           {/* Overview Section */}
         <section className={styles.section}>
-          <h1
-            className={`${styles.separator} ${styles.outlinedProcess}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            PROCESS • PROCESS • PROCESS • PROCESS • PROCESS • PROCESS
-          </h1>
+        <motion.h1
+        className={`${styles.separator} ${styles.outlinedProcess}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+       PROCESS • PROCESS • PROCESS • PROCESS • PROCESS • PROCESS
+      </motion.h1>
           <h2 className={styles.moreProject}>Installation /</h2>
           <h2 className={styles.moreProjectSmall}>Sensors</h2>
 
@@ -170,11 +201,11 @@ The vision behind this project stems from the desire to create innovative ways f
 
             {/* Image Container */}
             <div className={styles.imageContainer}>
-              <img src="/aol_sensors.png" alt="sensors" className={styles.smallImage} />
+              <img src="/aol_sensor.png" alt="sensors" className={styles.smallImage} />
             </div>
           </div>
           <div className={styles.imageContainer}>
-              <img src="/aol_sensorinstallation.png" alt="installation" className={styles.longimage} />
+              <img src="/aol_sensorinstal.png" alt="installation" className={styles.longimageround} />
             </div>
           
           <h2 className={styles.moreProjectSmall}>Light projection</h2>
@@ -239,12 +270,14 @@ The vision behind this project stems from the desire to create innovative ways f
         {/* Contact Section */}
         
         <section className={styles.contactSection}>
-        <h1
-            className={`${styles.separator} ${styles.outlinedContact}`}
-            style={{ transform: `translateX(${translateX}px)` }}
-          >
-            CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME
-          </h1>
+        <motion.h1
+        className={`${styles.separator} ${styles.outlinedContact}`}
+        initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
+        animate={controls} // Bind the animation controls to the element
+        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+      >
+       CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME
+      </motion.h1>
           <div className={styles.contactContainer}>
             <div className={styles.formContainer}>
               <h2>GET IN TOUCH</h2>
