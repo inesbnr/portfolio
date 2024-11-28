@@ -82,12 +82,14 @@
   display: none; /* Hidden by default */
   flex-direction: column;
   position: absolute;
-  top: 60px;
+  align-items: center;
+  top: 50px;
   left: 0; /* Aligns the dropdown to the left */
   background-color: #12263A;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  width: 150px;
+  border-top: #12263A;
+  border-bottom: 1px solid #fff;
+  border-radius: 0px;
+  width: 100%;
   padding: 10px 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
@@ -103,8 +105,8 @@
 }
 
 .dropdown a:hover {
-  background-color: #0ABCC1;
-  color: #12263A;
+
+  color: #0ABCC1;
 }
 
 /* Show the dropdown menu when active */
@@ -113,7 +115,7 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 766px) {
   .navItems {
     display: none; /* Hide desktop nav items */
   }
@@ -124,7 +126,7 @@
 }
 
 /* For larger screens (tablets and desktops) */
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .hamburger {
     display: none; /* Hide hamburger icon on large screens */
   }
@@ -161,7 +163,7 @@
 
 /* Separators */
 .separator {
-  text-align: left; /* Align text to the left */
+  text-align: center; /* Align text to the left */
   background-color: #12263A; /* Text color */
   margin: 4vw 0; /* Space around */
   position: relative; /* Allows positioning child elements */
@@ -174,7 +176,7 @@
   width: 40%; /* Width of the line */
   height: 0.1vw; /* Line thickness in viewport units */
   top: 50%; /* Vertical alignment */
-  text-align: left; /* Align text to the left */
+  text-align: center; /* Align text to the left */
 }
 .separator::before {
   left: 0; /* Position the line to the left */
@@ -214,7 +216,7 @@
   white-space: nowrap; /* Prevent text wrapping */
   display: inline-block; /* Allows translation */
   position: relative; /* Relative positioning */
-  left: -15vw; /* Adjust initial position */
+  left: -30vw; /* Adjust initial position */
 }
 .outlinedSkills {
   font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
@@ -230,7 +232,23 @@
   white-space: nowrap; /* Prevent text wrapping */
   display: inline-block; /* Allows translation */
   position: relative; /* Relative positioning */
-  left: -30vw; /* Adjust initial position */
+  left: -90vw; /* Adjust initial position */
+}
+.outlinedexp {
+  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-weight: 700; /* Font weight */
+  color: #12263A; /* Main text color */
+  text-shadow: 
+    -0.5px -0.5px 0 #CEFFED,  
+    0.5px -0.5px 0 #CEFFED,
+    -0.5px 0.5px 0 #CEFFED,
+    0.5px 0.5px 0 #CEFFED; /* Shadows for outline effect */
+  transform: translateX(-200%); /* Initial position */
+  transition: transform 0.8s ease-out; /* Smooth transition */
+  white-space: nowrap; /* Prevent text wrapping */
+  display: inline-block; /* Allows translation */
+  position: relative; /* Relative positioning */
+  left: -90vw; /* Adjust initial position */
 }
 .outlinedContact {
   font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
@@ -246,7 +264,7 @@
   white-space: nowrap; /* Prevent text wrapping */
   display: inline-block; /* Allows translation */
   position: relative; /* Relative positioning */
-  left: -30vw; /* Adjust initial position */
+  left: -120vw; /* Adjust initial position */
 }
 
 
@@ -309,15 +327,17 @@
 .customFont {
   font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
   font-weight: 400; /* Adjust font-weight as necessary */
-  font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+  font-size: clamp(20px, 2.2vw, 30px); /* Matches the surrounding text's size */
   color: #0ABCC1; 
 }
 
 .customFontbig {
   font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
   font-weight: 400; /* Adjust font-weight as necessary */
-  font-size: clamp(25px, 2vw, 40px); /* Matches the surrounding text's size */
+  font-size: clamp(25px, 2.5vw, 40px); /* Matches the surrounding text's size */
+
 }
+
 
 .customFontcolor {
   font-weight: 800; /* Adjust font-weight as necessary */
@@ -395,6 +415,7 @@
   flex: 1;                          /* Prend 50% de l'espace disponible */
   width: 25px;                /* Largeur maximale de l'image */
   border-radius: 0px;    
+
 }
 .projectImage img {
                     /* Image prend toute la largeur de son conteneur */
@@ -421,9 +442,9 @@
 .projectDescription h3 {
   font-size: clamp(20px, 2vw, 30px);                  /* Taille de la police pour le titre du projet */
   color: #CCE5FF; 
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   margin: 2;                        /* Retire les marges par défaut */
-  padding-top: 15px; 
+  padding-top: 0px; 
   
 }
 
@@ -541,7 +562,8 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   border-radius: 8px;
-  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.8s ease, box-shadow 0.4s ease;
 }
 
 .skillCard h3 {
@@ -565,6 +587,8 @@
 /* Hover Effect */
 .skillCard:hover {
   transform: translateY(-10px);
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   background-color: #FFEFDE;
 
 }
@@ -574,6 +598,25 @@
 
 .skillCard:hover li {
   color: #222; /* Changer la couleur des éléments de la liste */
+}
+/* Logo Grid (Shown on Hover) */
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for logos */
+  gap: 10px;
+  padding: 10px;
+  align-items: center; /* Vertically align items in the grid */
+  justify-items: center; /* Horizontally align items in the grid */
+  width: 100%; /* Ensure it takes up the full width of the parent */
+  height: 100%; /* Ensure it takes up the full height of the parent */
+}
+
+
+
+.logoskills {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 /* Responsive Design */
 /* For very small screens (1 card per row) */
@@ -629,14 +672,14 @@
 .contactForm label {
   margin-bottom: 5px; /* Space between label and input */
   text-align: left;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(20px, 2vw, 30px);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(15px, 1.5vw, 18px);
 }
 
 .contactForm input,
 .contactForm textarea {
   font-family: 'Typewriter';
-  font-size: 12px;  
+  font-size: clamp(15px, 1.5vw, 18px);
   padding: 10px; /* Padding for inputs */
   margin-bottom: 15px; /* Space between inputs */
   border: 1px solid #CEFFED; /* Border for inputs */
@@ -645,12 +688,13 @@
 }
 
 .contactForm button {
-  padding: 10px; /* Padding for button */
+  margin-top: 3%;
+  padding: clamp(15px, 1.5vw, 18px); /* Padding for button */
   background-color: #12263A; /* Button background color */
   color: #CEFFED; /* Button text color */
   border: 1px solid #CEFFED; /* No border */
   border-radius: 4px; /* Rounded corners */
-  font-size: 14px;  
+  font-size: clamp(16px,2vw, 20px);
   cursor: pointer; /* Pointer on hover */
   transition: background-color 0.3s; /* Transition effect */
 }
@@ -755,6 +799,14 @@
   margin: 0;                       /* Retire les marges par défaut */
 }
 
+.expTitle {
+
+  align-self: flex-start;          /* Positionne le titre en haut à gauche */
+  font-size: clamp(30px, 5vw, 50px);   
+  color: #C5D8D1  ;            /* Ajustez la taille de la police selon vos besoins */
+  margin: 0;                          /* Retire les marges par défaut */
+}
+
 .mySkillsTitle {
 
   align-self: flex-start;          /* Positionne le titre en haut à gauche */
@@ -769,3 +821,87 @@
   color: #C5D8D1  ;            /* Ajustez la taille de la police selon vos besoins */
   margin: 0;                       /* Retire les marges par défaut */
 }
+
+
+.expDescription {
+  flex: 1;      
+  color: #C5D8D1;                 /* Prend 50% de l'espace disponible */
+  padding: 20px;              /* Espacement à gauche */
+  text-align: left; 
+  font-size: 20px;
+}
+/* Style for the year */
+.year {
+  font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
+  font-weight: 400; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 2vw, 25px); /* Matches the surrounding text's size */
+  color: #C5D8D1; 
+  display: block; /* Forces the year to be on a new line */
+}
+
+/* Style for the school name */
+.school {
+  font-weight: 800; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+  font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
+  color: #CEFFED; 
+  display: block; /* Forces the year to be on a new line */
+}
+
+/* Style for the location */
+.location {
+  font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
+  font-weight: 400; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 1.2vw, 30px); /* Matches the surrounding text's size */
+  color: #C5D8D1; 
+  display: block; /* Forces the year to be on a new line */
+  font-style: italic; /* Makes the text italic */
+}
+
+/* Style for the degree */
+.degree {
+  font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
+  font-weight: 400; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 1.3vw, 30px); /* Matches the surrounding text's size */
+  color: #C5D8D1; 
+  display: block; /* Forces the year to be on a new line */
+}
+
+/* Optional: Style for the research group or any extra detail */
+.group {
+  font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
+  font-weight: 400; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 1.3vw, 30px); /* Matches the surrounding text's size */
+  color: #C5D8D1; 
+  display: block; /* Forces the year to be on a new line */
+}
+
+/* Style for the company name */
+.company {
+  font-weight: 800; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+  font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
+  color: #CEFFED; 
+  display: block; /* Forces the year to be on a new line */
+}
+
+/* Style for the position */
+.position {
+  font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
+  font-weight: 400; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 1.3vw, 30px); /* Matches the surrounding text's size */
+  color: #C5D8D1; 
+  display: block; /* Forces the year to be on a new line */
+}
+
+/* Style for the description */
+.description {
+  font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
+  font-weight: 400; /* Adjust font-weight as necessary */
+  font-size: clamp(20px, 1.3vw, 30px); /* Matches the surrounding text's size */
+  color: #C5D8D1; 
+  display: block; /* Forces the year to be on a new line */
+}
+
+
+
