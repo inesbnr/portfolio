@@ -188,11 +188,11 @@ export default function Home() {
     viewport={{ once: true, amount: 0.5 }}
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
-    Hi, I am <span className={styles.customFontbig}>Inès Beaunoir</span>, 
-                a <span className={styles.customFontcolor}> Creative technology student </span> 
+    <div className={styles.aboutMeTextbig} >Hi, I'm <span className={styles.customFontbig}>Inès Beaunoir </span> ! </div>
+                I'm a <span className={styles.customFontcolor}> Creative technology student </span> 
                 at the Institute for Future Technologies in Paris. <br />
                 I love <span className={styles.customFont}> technologies</span> and <span className={styles.customFont}>innovation</span>. <br />
-                I am in the <span className={styles.customFontcolor}>Human Learning</span> research group to study human interactions with technology.
+                I'm in the <span className={styles.customFontcolor}>Human Learning</span> research group to study human interactions with technology.
              
   </motion.div>
   <motion.div
@@ -250,11 +250,12 @@ export default function Home() {
               <img src="/ARTOFLIFE.png" alt="Project 1" className={styles.projectImage} />
               <div className={styles.projectDescription}>
                 <h1>ART OF LIFE</h1>
+                <h2>March 2024</h2>
               
                 <h3>INNOVATION PROJECT</h3>
                 <p>An artistic immersive experience using biosignals for stress and emotions management.</p>
                 <Link href="/artoflife">
-                  <button className={styles.learnMoreButton}>Learn More</button>
+                  <button className={styles.learnMoreButton}>Learn More → </button>
                 </Link>
               </div>
               </motion.div>
@@ -273,11 +274,12 @@ export default function Home() {
               
               <div className={styles.projectDescription}>
                 <h1>SMART SOCKS</h1>
+                <h2>November 2024</h2>
               
                 <h3>INNOVATION PROJECT</h3>
                 <p>Smart socks for running that help you to prevent injuries when running.</p>
                 <Link href="/running">
-                  <button className={styles.learnMoreButton}>Learn More</button>
+                  <button className={styles.learnMoreButton}>Learn More →</button>
                 </Link>
               </div>
               </motion.div>
@@ -297,11 +299,12 @@ export default function Home() {
              
               <div className={styles.projectDescription}>
                 <h1>OKSI</h1>
+                <h2>December 2024</h2>
 
                 <h3>INNOVATION PROJECT</h3>
                 <p>A bracelet coach for running that frees you from numbers to achieve your goals.</p>
                 <Link href="/running">
-                  <button className={styles.learnMoreButton}>Learn More</button>
+                  <button className={styles.learnMoreButton}>Learn More →</button>
                 </Link>
               </div>
               </motion.div>
@@ -321,11 +324,12 @@ export default function Home() {
               
               <div className={styles.projectDescription}>
                 <h1>POGODO</h1>
+                <h2>February 2024</h2>
                 <h3>KICKSTARTER PROJECT</h3>
                 <p>A water bottle holder made of leather. Do it yourself with this DIY kit.</p>
                 {/* Learn More Button */}
                 <Link href="/pogodo">
-                  <button className={styles.learnMoreButton}>Learn More</button>
+                  <button className={styles.learnMoreButton}>Learn More →</button>
                 </Link>
               </div>
               </motion.div>
@@ -342,11 +346,14 @@ export default function Home() {
         animate={controls} // Bind the animation controls to the element
         transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
       >
-       EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION • EDUCATION 
+       EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION 
 
       </motion.h1>
 
-      <motion.h2
+      <div className={styles.textresume}>
+  {/* Education Section */}
+  <div className={styles.textdiv}>
+  <motion.h2
             className={styles.expTitle}
             initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
             whileInView={{ opacity: 1 }} // Fade in to full opacity when in view
@@ -369,7 +376,7 @@ export default function Home() {
 
 <div className={styles.expDescription}>
   <h3>
-    <span className={styles.year}>2020 - 2025</span>
+    <span className={styles.year}>2023 - 2025</span>
     <span className={styles.school}>Institute for Future Technologies (IFT)</span>
     <span className={styles.location}>Paris La Défense, France</span>
     <span className={styles.degree}>MSc in Innovation and Creative Technology</span>
@@ -393,24 +400,11 @@ export default function Home() {
     <span className={styles.degree}>Scientific Baccalaureate, Specialization in Mathematics, with Honors</span>
   </h3>
 </div>
+  </div>
 
-
-
-        </section>
-
-        {/* Work Experiences Section */}
-        <section id="work" className={styles.section}>
-          
-
-          <motion.h1
-        className={`${styles.separator} ${styles.outlinedexp}`}
-        initial={{ x: 0, opacity: 0 }} // Start off-screen and transparent
-        animate={controls} // Bind the animation controls to the element
-        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
-      >
-       WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES • WORK EXPERIENCES
-
-      </motion.h1>
+  {/* Work Experiences Section */}
+  <div className={styles.textdiv}>
+ 
       <motion.h2
             className={styles.expTitle}
             initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
@@ -457,8 +451,13 @@ export default function Home() {
     <span className={styles.description}>Business discovery internship at the radio department for the release of the audience study.</span>
   </h3>
 </div>
+  </div>
+</div>
+<Link href="/Ines-BEAUNOIR_CV.pdf">
+                  <button className={styles.resumebutton}>See my full resume →</button>
+                </Link>
 
-        </section>
+</section>
 
 
 
@@ -533,12 +532,12 @@ export default function Home() {
         <div className={styles.textContent}>
           <h3>Programming Languages</h3>
           <ul>
-            <li>C & C#</li>
-            <li>Python</li>
-            <li>Arduino</li>
-            <li>React & Next.js</li>
-            <li>Three.js</li>
-            <li>VS Code</li>
+          <li className={styles.skillItem}>C & C#</li>
+    <li className={styles.skillItem}>Python</li>
+    <li className={styles.skillItem}>Arduino</li>
+    <li className={styles.skillItem}>React & Next.js</li>
+    <li className={styles.skillItem}>Three.js</li>
+    <li className={styles.skillItem}>VS Code</li>
           </ul>
         </div>
       )}
@@ -555,9 +554,16 @@ export default function Home() {
     >
               <h3>Software & Tools</h3>
               <ul>
-                <li>Adobe Suite (Photoshop, Illustrator, After Effects)</li>
-                <li>Office 365</li>
-                <li>Computer-Aided Design (SolidWorks, Fusion 360, Kicad)</li>
+    <li className={styles.skillItem}>Adobe Creative Cloud</li>
+    <li className={styles.skillItem}>Office 365</li>
+    <li className={styles.skillItem}>Figma</li>
+    <li className={styles.skillItem}>Solidworks</li>
+    <li className={styles.skillItem}>Kicad</li>
+    <li className={styles.skillItem}>Fusion 360</li>
+
+
+    <li className={styles.skillItem}>Blender</li>
+  
               </ul>
               </motion.div>
 
@@ -572,11 +578,11 @@ export default function Home() {
     >
               <h3>Prototyping & Fabrication</h3>
               <ul>
-                <li>3D Printing</li>
-                <li>Laser Cutting</li>
-                <li>Arduino Microcontrollers</li>
-                <li>PCB designing</li>
-                <li>UX/UI Prototyping</li>
+              <li className={styles.skillItem}>3D Printing</li>
+    <li className={styles.skillItem}>Laser Cutting</li>
+    <li className={styles.skillItem}>Microcontrollers</li>
+    <li className={styles.skillItem}>PCB designing</li>
+    <li className={styles.skillItem}>UX/UI Prototyping</li>
               </ul>
               </motion.div>
 
@@ -591,11 +597,12 @@ export default function Home() {
     >
               <h3>Project Management & Collaboration</h3>
               <ul>
-                <li>Agile Methodology</li>
-                <li>Design Thinking</li>
-                <li>Trello</li>
-                <li>Notion</li>
-                <li>Figma</li>
+              <li className={styles.skillItem}>Agile Methodology</li>
+    <li className={styles.skillItem}>Design Thinking</li>
+    <li className={styles.skillItem}>Leadership</li>
+    <li className={styles.skillItem}>Trello</li>
+    <li className={styles.skillItem}>Notion</li>
+       
               </ul>
               </motion.div>
             </motion.div>
@@ -650,6 +657,9 @@ export default function Home() {
     <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
     <a href="https://www.linkedin.com/in/ines-beaunoir/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
       <img src="linkedin.png" alt="LinkedIn" className={styles.linkedinLogo} />
+    </a>
+    <a href="https://github.com/inesbnr" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
+      <img src="GitHub.png" alt="GitHUb" className={styles.linkedinLogo} />
     </a>
   </div>
 </footer>

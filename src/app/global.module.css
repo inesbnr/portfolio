@@ -187,7 +187,7 @@
 
 /* TEXT OUTLINED */
 .outlinedAboutme {
-  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-size: clamp(28px, 4.5vw, 50px); /* Responsive font size */
   font-weight: 700;
   color: #12263A; /* Main text color */
   text-shadow: 
@@ -203,7 +203,7 @@
   left: -15vw; /* Adjust initial position */
 }
 .outlinedProject {
-  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-size: clamp(28px, 4.5vw, 50px); /* Responsive font size */
   font-weight: 700;
   color: #12263A; /* Main text color */
   text-shadow: 
@@ -219,7 +219,7 @@
   left: -30vw; /* Adjust initial position */
 }
 .outlinedSkills {
-  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-size: clamp(28px, 4.5vw, 50px); /* Responsive font size */
   font-weight: 700; /* Font weight */
   color: #12263A; /* Main text color */
   text-shadow: 
@@ -235,7 +235,7 @@
   left: -110vh; /* Adjust initial position */
 }
 .outlinedexp {
-  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-size: clamp(28px, 4.5vw, 50px); /* Responsive font size */
   font-weight: 700; /* Font weight */
   color: #12263A; /* Main text color */
   text-shadow: 
@@ -251,7 +251,7 @@
   left: -120vh; /* Adjust initial position */
 }
 .outlinedContact {
-  font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+  font-size: clamp(28px, 4.5vw, 50px); /* Responsive font size */
   font-weight: 700; /* Font weight */
   color: #12263A; /* Main text color */
   text-shadow: 
@@ -312,16 +312,41 @@
   align-items: center; /* Vertically align them */
   flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
+.textresume{
+  display: flex; /* Use flexbox to arrange items horizontally */
+  justify-content: space-between; /* Place text and image at opposite ends */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 2rem; /* Add spacing between sections */
+}
+
+.textdiv {
+  flex: 1; /* Allow sections to take up equal space */
+  text-align: left;
+
+}
+
 
 .aboutMeText {
+  max-width: 65%; /* Limit the text width */
   text-align: left;              /* Centre le texte */
   margin-top: 10px;   
-  font-size: clamp(24px, 3vw, 40px); 
+  font-size: clamp(15px, 2vw, 24px);
   font-family: 'Montserrat'; 
   color: #D1FEFF;            /* Augmentez l'espacement au-dessus du texte */
   line-height: 2;
   /* Ajustez la marge supérieure selon vos besoins */
 }
+.aboutMeTextbig {
+  text-align: left;              /* Centre le texte */
+  margin-top: 10px;   
+  font-size: clamp(24px, 3vw, 30px); 
+  font-family: 'Montserrat'; 
+  color: #D1FEFF;            /* Augmentez l'espacement au-dessus du texte */
+  line-height: 2;
+  font-weight: 800;
+  /* Ajustez la marge supérieure selon vos besoins */
+}
+
 
 .customFont {
   font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
@@ -333,7 +358,7 @@
 .customFontbig {
   font-family: 'Aborm', sans-serif; /* Ensure fallback fonts are specified */
   font-weight: 400; /* Adjust font-weight as necessary */
-  font-size: clamp(25px, 2.5vw, 40px); /* Matches the surrounding text's size */
+  font-size: clamp(30px, 3vw, 40px); /* Matches the surrounding text's size */
 
 }
 
@@ -374,13 +399,19 @@
   .aboutMeText {
     max-width: 100%;
     margin-bottom: 10px; /* Add spacing below text */
-    font-size: 2.5vh; /* Adjust font size for small screens */
   }
 
   .profileImage {
     width: 130%; /* Reduce image size */
     max-width: 500px; /* Optional: limit max width */
     height: auto; 
+  }
+}
+@media (max-width: 1000px) {
+
+  .textresume {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center-align text */
   }
 }
 
@@ -390,7 +421,7 @@
   flex-direction: column; /* Stack the projects vertically */
   gap: 0px;               /* Adds space between the projects */
   padding: 15px 3vw;      /* Adds 20px padding on top/bottom and 30px on left/right */
-  padding-top: 35px;
+  padding-top: 2vw;
 }
 
 .projectsTitle {
@@ -413,7 +444,7 @@
 .projectImage {
   flex: 1;                          /* Prend 50% de l'espace disponible */
   width: 25px;                /* Largeur maximale de l'image */
-  border-radius: 0px;    
+  border-radius: 20px;    
 
 }
 .projectImage img {
@@ -437,6 +468,15 @@
   margin: 0;                        /* Retire les marges par défaut */
   margin-bottom: 0px;
 }
+.projectDescription h2 {
+  font-size: clamp(16px, 1.2vw, 30px);                  /* Taille de la police pour le titre du projet */
+  color: #5BA5F1; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  padding-top: 0px; 
+  
+}
+
 
 .projectDescription h3 {
   font-size: clamp(20px, 2vw, 30px);                  /* Taille de la police pour le titre du projet */
@@ -448,7 +488,7 @@
 }
 
 .projectDescription p {
-  font-size: clamp(15px, 2vw, 24px);; 
+  font-size: clamp(15px, 2vw, 24px);
   font-family: 'Montserrat';
   margin-top: 10px;                 /* Espacement au-dessus de la description */
 }
@@ -552,7 +592,7 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   padding: 10px;
-  margin-top: 50px;
+  margin-top: 2vw;
 }
 
 /* Skill Card Styles */
@@ -577,10 +617,21 @@
   margin: 0;
 }
 
-.skillCard li {
+
+/* Individual Skill Items */
+.skillItem {
+  display: inline-block;
+  background-color: #FFEFDE; /* Light background */
+  color: #12263A; /* Text color */
+  border-radius: 20px; /* Rounded corners */
+  padding: 3px 6px; /* Inner padding */
   font-size: clamp(16px, 2vw, 20px);
-  color: #FFEFDE;
+  margin: 5px; /* Add a small gap between boxes */
+  text-align: center; /* Center text */
+  white-space: nowrap; /* Prevent text wrapping */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   margin-bottom: 0.5rem;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 /* Hover Effect */
@@ -643,7 +694,7 @@
 
 /* CONTACT PART */
 .contactSection {
-  padding: 40px 20px; /* Add some padding */
+  padding: 2vw 20px; /* Add some padding */
   background-color: #12263A; /* Background color */
   color: #CEFFED; /* Text color */
 }
@@ -786,30 +837,32 @@
 .aboutMeTitle {
 
   align-self: flex-start;          /* Positionne le titre en haut à gauche */
-  font-size: clamp(30px, 5vw, 50px);   
+  font-size: clamp(30px, 4vw, 50px);   
   color: #0ABCC1  ;            /* Ajustez la taille de la police selon vos besoins */
   margin: 0;                       /* Retire les marges par défaut */
 }
 
 .myProjectsTitle {
   align-self: flex-start;          /* Positionne le titre en haut à gauche */
-  font-size: clamp(30px, 5vw, 50px); 
+  font-size: clamp(30px, 4vw, 50px); 
   color: #5BA5F1;                 /* Ajustez la taille de la police selon vos besoins */
   margin: 0;                       /* Retire les marges par défaut */
 }
 
 .expTitle {
-
+  
   align-self: flex-start;          /* Positionne le titre en haut à gauche */
-  font-size: clamp(30px, 5vw, 50px);   
-  color: #C5D8D1  ;            /* Ajustez la taille de la police selon vos besoins */
+  font-size: clamp(30px, 4vw, 50px);   
+  color: #6AF1BF  ;            /* Ajustez la taille de la police selon vos besoins */
   margin: 0;                          /* Retire les marges par défaut */
 }
+
+
 
 .mySkillsTitle {
 
   align-self: flex-start;          /* Positionne le titre en haut à gauche */
-  font-size: clamp(30px, 5vw, 50px);   
+  font-size: clamp(30px, 4vw, 50px);   
   color: #F4D1AE  ;            /* Ajustez la taille de la police selon vos besoins */
   margin: 0;                          /* Retire les marges par défaut */
 }
@@ -821,6 +874,29 @@
   margin: 0;                       /* Retire les marges par défaut */
 }
 
+.resumebutton {
+  font-size: clamp(16px, 2vw, 25px);; 
+  display: inline-block;        /* Makes the link behave like a button */
+  margin-top: 10px;            /* Add some space above the button */
+  padding: 10px 20px;          /* Padding for button */
+     /* Background color */
+  border: 1px solid #C5D8D1; /* White border */
+  color: #C5D8D1;                 /* Text color */                /* No border */
+  border-radius: 25px;         /* Rounded corners */
+  text-decoration: none;        /* Remove underline */
+  font-family: 'Montserrat', sans-serif; /* Font style */
+  text-align: center;          /* Center text */
+  background-color: #12263A;
+  transition: background-color 0.3s ease; /* Transition effect */
+  margin-top: 2vw;
+}
+
+.resumebutton:hover {
+  background-color: #6AF1BF;   /* Change background color on hover */
+  color: #12263A;                 /* Text color */  
+  border: 1px solid #6AF1BF; /* White border */
+
+}
 
 .expDescription {
   flex: 1;      
@@ -841,9 +917,9 @@
 /* Style for the school name */
 .school {
   font-weight: 800; /* Adjust font-weight as necessary */
-  font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+  font-size: clamp(20px, 1.5vw, 30px); /* Matches the surrounding text's size */
   font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
-  color: #CEFFED; 
+  color: #6AF1BF; 
   display: block; /* Forces the year to be on a new line */
 }
 
@@ -851,7 +927,7 @@
 .location {
   font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
   font-weight: 400; /* Adjust font-weight as necessary */
-  font-size: clamp(20px, 1.2vw, 30px); /* Matches the surrounding text's size */
+  font-size: clamp(16px, 1.5vw, 24px);
   color: #C5D8D1; 
   display: block; /* Forces the year to be on a new line */
   font-style: italic; /* Makes the text italic */
@@ -861,7 +937,7 @@
 .degree {
   font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
   font-weight: 400; /* Adjust font-weight as necessary */
-  font-size: clamp(20px, 1.3vw, 30px); /* Matches the surrounding text's size */
+  font-size: clamp(16px, 1.6vw, 24px); /* Matches the surrounding text's size */
   color: #C5D8D1; 
   display: block; /* Forces the year to be on a new line */
 }
@@ -870,7 +946,7 @@
 .group {
   font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
   font-weight: 400; /* Adjust font-weight as necessary */
-  font-size: clamp(20px, 1.3vw, 30px); /* Matches the surrounding text's size */
+  font-size: clamp(15px, 1.5vw, 24px); /* Matches the surrounding text's size */
   color: #C5D8D1; 
   display: block; /* Forces the year to be on a new line */
 }
@@ -878,9 +954,9 @@
 /* Style for the company name */
 .company {
   font-weight: 800; /* Adjust font-weight as necessary */
-  font-size: clamp(20px, 2vw, 30px); /* Matches the surrounding text's size */
+  font-size: clamp(20px, 1.5vw, 30px); /* Matches the surrounding text's size */
   font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
-  color: #CEFFED; 
+  color: #6AF1BF; 
   display: block; /* Forces the year to be on a new line */
 }
 
@@ -888,7 +964,7 @@
 .position {
   font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
   font-weight: 400; /* Adjust font-weight as necessary */
-  font-size: clamp(20px, 1.3vw, 30px); /* Matches the surrounding text's size */
+  font-size: clamp(16px, 1.6vw, 24px); /* Matches the surrounding text's size */
   color: #C5D8D1; 
   display: block; /* Forces the year to be on a new line */
 }
@@ -897,10 +973,9 @@
 .description {
   font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
   font-weight: 400; /* Adjust font-weight as necessary */
-  font-size: clamp(20px, 1.3vw, 30px); /* Matches the surrounding text's size */
+  font-size: clamp(15px, 1.5vw, 24px); /* Matches the surrounding text's size */
   color: #C5D8D1; 
   display: block; /* Forces the year to be on a new line */
 }
-
 
 
