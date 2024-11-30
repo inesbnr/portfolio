@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import styles from './global.module.css';
 import { Ines } from "./components/logoaccueil";
+import ContactForm from './ContactForm';
 
 import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimation } from 'framer-motion';
 import Lenis from 'lenis';
@@ -15,6 +16,7 @@ import { OrbitControls, useGLTF, PerspectiveCamera } from '@react-three/drei';
 export default function Home() {
 
   const [hovered, setHovered] = useState(false); // State to track hover
+  
 
   const { scrollYProgress } = useScroll(); // This gives the scroll progress
   const yRange = useTransform(scrollYProgress, [0, 1], [0, 100]); // Controls how much the image moves based on scroll
@@ -546,13 +548,32 @@ export default function Home() {
             {/* Software & Tools Card */}
             <motion.div
       className={styles.skillCard}
+      onMouseEnter={() => setHovered(true)}  // When mouse enters, set hovered to true
+      onMouseLeave={() => setHovered(false)} // When mouse leaves, set hovered to false
       variants={{
         hidden: { opacity: 0, y: 0 },
         visible: { opacity: 1, y: 0 },
       }}
+      initial="hidden" // Start with hidden state
+      animate="visible" // Animate to visible when not hovered
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-              <h3>Software & Tools</h3>
+      {hovered ? (
+        // Logos shown when hovered
+        <div className={styles.logoGrid}>
+          <img src="/logoapp/logo1.png" alt="C Logo" className={styles.logoskills} />
+          <img src="/logoapp/logo2.png" alt="Python Logo" className={styles.logoskills} />
+          <img src="/logoapp/logo3.png" alt="Arduino Logo" className={styles.logoskills} />
+          <img src="/logoapp/logo4.png" alt="React Logo" className={styles.logoskills} />
+          <img src="/logoapp/logo5.png" alt="Three.js Logo" className={styles.logoskills} />
+          <img src="/logoapp/logo6.png" alt="VS Code Logo" className={styles.logoskills} />
+          <img src="/logoapp/logo7.png" alt="Three.js Logo" className={styles.logoskills} />
+        </div>
+      ) : (
+        // Text shown by default when not hovered
+        <div className={styles.textContent}>
+          
+          <h3>Software & Tools</h3>
               <ul>
     <li className={styles.skillItem}>Adobe Creative Cloud</li>
     <li className={styles.skillItem}>Office 365</li>
@@ -563,9 +584,11 @@ export default function Home() {
 
 
     <li className={styles.skillItem}>Blender</li>
-  
-              </ul>
-              </motion.div>
+          </ul>
+        </div>
+      )}
+    </motion.div>
+           
 
             {/* Prototyping & Fabrication Card */}
             <motion.div
@@ -626,15 +649,9 @@ export default function Home() {
           <div className={styles.contactContainer}>
             <div className={styles.formContainer}>
               <h2 className={styles.contactMeTitle}>GET IN TOUCH</h2>
-              <form className={styles.contactForm}>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" placeholder="Please enter your email" required />
-                <label htmlFor="mobile">Mobile</label>
-                <input type="tel" id="mobile" placeholder="Enter mobile" required />
-                <label htmlFor="message">Message</label>
-                <textarea id="message" placeholder="Enter your message" required></textarea>
-                <button type="submit">SUBMIT</button>
-              </form>
+              <div>
+      <ContactForm />
+    </div>
             </div>
             <div className={styles.mapContainer}>
               <h2 className={styles.contactMeTitle}>MY LOCATION</h2>

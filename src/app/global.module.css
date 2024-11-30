@@ -633,15 +633,19 @@
   margin-bottom: 0.5rem;
   white-space: nowrap; /* Prevent text wrapping */
 }
+.skillItem:hover {
+  background-color: #F4D1AE;
+}
 
 /* Hover Effect */
 .skillCard:hover {
   transform: translateY(-10px);
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  background-color: #FFEFDE;
+  background-color: #FFF6F2;
 
 }
+
 .skillCard:hover h3 {
   color: #666; /* Changer la couleur du titre */
 }
@@ -719,7 +723,7 @@
   flex-direction: column; /* Stack elements vertically */
 }
 
-.contactForm label {
+.contactlabel {
   margin-bottom: 5px; /* Space between label and input */
   text-align: left;
   font-family: 'Montserrat', sans-serif;
@@ -743,7 +747,7 @@
   background-color: #12263A; /* Button background color */
   color: #CEFFED; /* Button text color */
   border: 1px solid #CEFFED; /* No border */
-  border-radius: 4px; /* Rounded corners */
+  border-radius: 12px; /* Rounded corners */
   font-size: clamp(16px,2vw, 20px);
   cursor: pointer; /* Pointer on hover */
   transition: background-color 0.3s; /* Transition effect */
