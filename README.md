@@ -27,7 +27,9 @@ Mon portfolio permet d'afficher :
 - Codage de toutes les pages avec **Next.js** (pas d'utilisation de template mais utilisation de l'IA pour certaines structures).
 - Configuration du routage et des API (utilisation de **Formspree** pour la partie contact via un tutoriel de Vercel : https://vercel.com/guides/deploying-react-forms-using-formspree-with-vercel ).
 - L'animation 3D en Three.js à partir de mes modélisations de mes projets Smart Socks et OKSI sur Blender, création du personnage sur Blender et animation sur Mixamo
-- La maquette réalisée à partir de **Figma** , choix des couleurs, polices, dispositions des éléments
+- La maquette réalisée à partir de **Figma** , choix des couleurs, polices, dispositions des éléments.
+
+Axes d'améliorations : Maintenant que je maîtrise le code, optimiser le codes pour simplifier les structures
 
 ### Ressources externes :
 - Icônes et logo provenant d'internet.
