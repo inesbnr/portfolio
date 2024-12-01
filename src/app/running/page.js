@@ -358,7 +358,7 @@ export default function Running() {
   <div className={styles.footerContent}>
     <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
     <a href="https://www.linkedin.com/in/ines-beaunoir/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
-      <img src="linkedIn.png" alt="LinkedIn" className={styles.linkedinLogo} />
+      <img src="linkedin.png" alt="LinkedIn" className={styles.linkedinLogo} />
     </a>
     <a href="https://github.com/inesbnr" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
       <img src="GitHub.png" alt="GitHUb" className={styles.linkedinLogo} />
