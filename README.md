@@ -29,7 +29,7 @@ Mon portfolio permet d'afficher :
 - L'animation 3D en Three.js à partir de mes modélisations de mes projets Smart Socks et OKSI sur Blender, création du personnage sur Blender et animation sur Mixamo
 - La maquette réalisée à partir de **Figma** , choix des couleurs, polices, dispositions des éléments.
 
-Axes d'améliorations : Maintenant que je maîtrise le code, optimiser le codes pour simplifier les structures
+Axes d'améliorations : Maintenant que je maîtrise le code, optimiser le code pour simplifier les structures
 
 ### Ressources externes :
 - Icônes et logo provenant d'internet.
