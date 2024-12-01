@@ -1,6 +1,6 @@
 # Mon Portfolio avec Next.js
 
-Bienvenue sur le GitHub de mon portfolio. Ce projet a été réalisé en utilisant **Next.js** pour mettre en forme mes compétences, projets et expériences.
+Bienvenue sur le GitHub de mon portfolio !! Ce projet a été réalisé en utilisant **Next.js** pour mettre en forme mes compétences, projets et expériences.
 
 ---
 
@@ -24,7 +24,7 @@ Mon portfolio permet d'afficher :
 - La structure du site.
 - Les styles CSS.
 - Les animations (utilisation de **Framer Motion** et de lenis pour le scroll).
-- Codage de toutes les pages avec **Next.js** (pas d'utilisation de template mais utilisation de l'IA pour certaines structures).
+- Codage de toutes les pages avec **Next.js** (pas d'utilisation de template mais utilisation de l'IA pour certaines structures puis modifications du code).
 - Configuration du routage et des API (utilisation de **Formspree** pour la partie contact via un tutoriel de Vercel : https://vercel.com/guides/deploying-react-forms-using-formspree-with-vercel ).
 - L'animation 3D en Three.js à partir de mes modélisations de mes projets Smart Socks et OKSI sur Blender, création du personnage sur Blender et animation sur Mixamo
 - La maquette réalisée à partir de **Figma** , choix des couleurs, polices, dispositions des éléments.
