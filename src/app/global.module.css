@@ -1,15 +1,14 @@
 /* Navbar.module.css */
-
 /* General Navbar Styling */
 .navbar {
   width: 100%;
   padding: 15px 20px;
   font-family: 'Montserrat', sans-serif;
-  background-color: #12263A; /* Dark background */
+  background-color: #12263A; 
   position: fixed;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid #fff; /* Bottom border line */
+  border-bottom: 1px solid #fff; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -718,6 +717,7 @@ overflow:visible;
 
 /* CONTACT PART */
 .contactSection {
+  scroll-margin-top: 25px; /* Décalage automatique */
   padding: 2vw 20px; /* Add some padding */
   background-color: #12263A; /* Background color */
   color: #CEFFED; /* Text color */

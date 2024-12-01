@@ -84,6 +84,10 @@ export default function Home() {
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
+  //Dropdown no visibility
+  const noDropdown = () => {
+    setDropdownVisible(false);
+  };
 
   return (
     <div className={styles.container}>
@@ -112,7 +116,7 @@ export default function Home() {
         </ul>
 
         {/* Contact Button */}
-        <a href="#contact" onClick={toggleDropdown} className={styles.contactButton}>GET IN TOUCH</a>
+        <a href="#contact" onClick={noDropdown} className={styles.contactButton}>GET IN TOUCH</a>
 
         {/* Dropdown Menu (Mobile) */}
         <div className={`${styles.dropdown} ${dropdownVisible ? styles.active : ''}`}>
@@ -337,9 +341,9 @@ export default function Home() {
 
           <motion.h1
         className={`${styles.separator} ${styles.outlinedexp}`}
-        initial={{ x: 0, opacity: 0 }} // Start off-screen and transparent
-        animate={controls} // Bind the animation controls to the element
-        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+        initial={{ x: 0, opacity: 0 }} 
+        animate={controls} 
+        transition={{ duration: 0.5, ease: "easeOut" }} 
       >
        EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION • WORK EXPERIENCE • EDUCATION 
 
@@ -350,10 +354,10 @@ export default function Home() {
   <div className={styles.textdiv}>
   <motion.h2
             className={styles.expTitle}
-            initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
-            whileInView={{ opacity: 1 }} // Fade in to full opacity when in view
-            viewport={{ once: true, amount: 0.5 }} // Trigger when 20% of the element is in view
-            transition={{ duration: 2, ease: "easeOut" }} // Duration of the fade-in animation
+            initial={{ opacity: 0 }} 
+            whileInView={{ opacity: 1 }} 
+            viewport={{ once: true, amount: 0.5 }} 
+            transition={{ duration: 2, ease: "easeOut" }} 
           >
             MY STUDIES /
           </motion.h2>
@@ -362,9 +366,9 @@ export default function Home() {
 
           <motion.div
     className={styles.expDescription}
-    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
-    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
-    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    initial={{ opacity: 0, y: 50 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: true, amount: 0.5 }} 
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
   <h3>
@@ -377,9 +381,9 @@ export default function Home() {
 
   <motion.div
     className={styles.expDescription}
-    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
-    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
-    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    initial={{ opacity: 0, y: 50 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: true, amount: 0.5 }} 
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
   <h3>
@@ -393,9 +397,9 @@ export default function Home() {
 
   <motion.div
     className={styles.expDescription}
-    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
-    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
-    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    initial={{ opacity: 0, y: 50 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: true, amount: 0.5 }} 
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
   <h3>
@@ -408,9 +412,9 @@ export default function Home() {
 
   <motion.div
     className={styles.expDescription}
-    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
-    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
-    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    initial={{ opacity: 0, y: 50 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: true, amount: 0.5 }} 
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
   <h3>
@@ -426,10 +430,10 @@ export default function Home() {
  
       <motion.h2
             className={styles.expTitle}
-            initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
-            whileInView={{ opacity: 1 }} // Fade in to full opacity when in view
-            viewport={{ once: true, amount: 0.5 }} // Trigger when 20% of the element is in view
-            transition={{ duration: 2, ease: "easeOut" }} // Duration of the fade-in animation
+            initial={{ opacity: 0, y: 50 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: true, amount: 0.5 }} 
+    transition={{ duration: 0.8, ease: "easeOut" }}
           >
             MY EXPERIENCES /
           </motion.h2>
@@ -437,9 +441,9 @@ export default function Home() {
       
           <motion.div
     className={styles.expDescription}
-    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
-    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
-    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    initial={{ opacity: 0, y: 50 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: true, amount: 0.5 }} 
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
   <h3>
@@ -452,9 +456,9 @@ export default function Home() {
 
 <motion.div
     className={styles.expDescription}
-    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
-    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
-    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    initial={{ opacity: 0, y: 50 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: true, amount: 0.5 }} 
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
   <h3>
@@ -467,9 +471,9 @@ export default function Home() {
 
 <motion.div
     className={styles.expDescription}
-    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
-    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
-    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    initial={{ opacity: 0, y: 50 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: true, amount: 0.5 }} 
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
   <h3>
@@ -482,9 +486,9 @@ export default function Home() {
 
 <motion.div
     className={styles.expDescription}
-    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
-    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
-    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    initial={{ opacity: 0, y: 50 }} 
+    whileInView={{ opacity: 1, y: 0 }} 
+    viewport={{ once: true, amount: 0.5 }} 
     transition={{ duration: 0.8, ease: "easeOut" }}
   >
   <h3>
@@ -499,8 +503,8 @@ export default function Home() {
 <Link href="/Ines-BEAUNOIR_CV.pdf">
   <motion.button
     className={styles.resumebutton}
-    whileHover={{ scale: 1.1, backgroundColor: "#f0f0f0" }} // Scale up and change color
-    whileTap={{ scale: 0.95 }} // Slightly shrink on tap
+    whileHover={{ scale: 1.1, backgroundColor: "#f0f0f0" }} 
+    whileTap={{ scale: 0.95 }} 
   >
     See my full resume →
   </motion.button>
@@ -516,9 +520,9 @@ export default function Home() {
 
           <motion.h1
         className={`${styles.separator} ${styles.outlinedSkills}`}
-        initial={{ x: 0, opacity: 0 }} // Start off-screen and transparent
-        animate={controls} // Bind the animation controls to the element
-        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+        initial={{ x: 0, opacity: 0 }} 
+        animate={controls} 
+        transition={{ duration: 0.5, ease: "easeOut" }} 
       >
        SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS • SKILLS
 
@@ -526,10 +530,10 @@ export default function Home() {
 
       <motion.h2
             className={styles.mySkillsTitle}
-            initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
-            whileInView={{ opacity: 1 }} // Fade in to full opacity when in view
-            viewport={{ once: true, amount: 0.5 }} // Trigger when 20% of the element is in view
-            transition={{ duration: 2, ease: "easeOut" }} // Duration of the fade-in animation
+            initial={{ opacity: 0 }} 
+            whileInView={{ opacity: 1 }} 
+            viewport={{ once: true, amount: 0.5 }} 
+            transition={{ duration: 2, ease: "easeOut" }}
           >
           MY SKILLS /
           </motion.h2>
@@ -546,7 +550,7 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3, // Delay between children animations
+        staggerChildren: 0.3, 
       },
     },
   }}
@@ -560,12 +564,12 @@ export default function Home() {
         hidden: { opacity: 0, y: 0 },
         visible: { opacity: 1, y: 0 },
       }}
-      initial="hidden" // Start with hidden state
-      animate="visible" // Animate to visible when not hovered
+      initial="hidden" 
+      animate="visible" 
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {hoveredCard === 'card1' ? (
-        // Logos shown when hovered
+      
         <div className={styles.logoGrid}>
           <img src="/logocode/logo1.png" alt="C Logo" className={styles.logoskills} />
           <img src="/logocode/logo2.png" alt="Python Logo" className={styles.logoskills} />
@@ -577,7 +581,7 @@ export default function Home() {
           <img src="/logocode/logo8.png" alt="VS Code Logo" className={styles.logoskills} />
         </div>
       ) : (
-        // Text shown by default when not hovered
+    
         <div className={styles.textContent}>
           <h3>Programming Languages</h3>
           <ul>
@@ -601,12 +605,11 @@ export default function Home() {
         hidden: { opacity: 0, y: 0 },
         visible: { opacity: 1, y: 0 },
       }}
-      initial="hidden" // Start with hidden state
-      animate="visible" // Animate to visible when not hovered
+      initial="hidden" 
+      animate="visible" 
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {hoveredCard === 'card2' ? (
-        // Logos shown when hovered
         <div className={styles.logoGrid}>
           <img src="/logoapp/logo1.png" alt="C Logo" className={styles.logoskills} />
           <img src="/logoapp/logo2.png" alt="Python Logo" className={styles.logoskills} />
@@ -617,7 +620,6 @@ export default function Home() {
           <img src="/logoapp/logo7.png" alt="Three.js Logo" className={styles.logoskills} />
         </div>
       ) : (
-        // Text shown by default when not hovered
         <div className={styles.textContent}>
           
           <h3>Software & Tools</h3>
@@ -685,9 +687,9 @@ export default function Home() {
         
               <motion.h1
         className={`${styles.separator} ${styles.outlinedContact}`}
-        initial={{ x: 0, opacity: 0 }} // Start off-screen and transparent
-        animate={controls} // Bind the animation controls to the element
-        transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
+        initial={{ x: 0, opacity: 0 }} 
+        animate={controls} 
+        transition={{ duration: 0.5, ease: "easeOut" }} 
       >
       
       CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME • CONTACT ME
