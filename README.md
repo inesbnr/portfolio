@@ -1,4 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Mon Portfolio avec Next.js
+
+Bienvenue sur le GitHub de mon portfolio. Ce projet a été réalisé en utilisant Next.js pour mettre en formes mes compétences, projets et expériences.
+
+Aperçu
+
+Mon portfolio permet d'afficher :
+
+Mes projets
+Mes études
+Mes expériences professionnelles
+Mes compétences techniques
+
+Lien vers le portfolio
+Cliquer ici pour voir mon Portfolio
+
+Design & Interface Utilisateur
+Réalisé par moi-même :
+- La structure du site
+- Les styles CSS 
+- Les animations (utilisation de Framer Motion notamment) 
+- Code de toutes les pages avec Next.js
+- Configuration du routage et des API (utilisation de Formspree pour la partie contact - Tuto Vercel)
+- Maquette réalisée à partir de Figma
+  
+Icônes et logo provenant d'internet
+
+Déploiement
+Déployé sur Vercel grâce au lien GitHub
 
 ## Getting Started
 
