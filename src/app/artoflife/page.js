@@ -6,6 +6,7 @@ import styles from "../project.module.css";
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimation } from 'framer-motion';
 import Lenis from 'lenis';
+import ContactForm from '../ContactForm';
 
 export default function Artoflife() {
   const [hovered, setHovered] = useState(false); // State to track hover
@@ -191,17 +192,17 @@ The vision behind this project stems from the desire to create innovative ways f
 
           <div className={styles.textAndImageContainer}>
             {/* Text Container */}
-            <div className={styles.overviewText}>
+            <div className={styles.paragraphText}>
               <p>
-              ECG Sensor This sensor uses three electrodes placed on the user’s upper body. You must connect the three electrodes to the sensor to ensure qualitative data. The reference electrode can be placed around the left lowest rib for an easier installation.
-            EDA Sensor This sensor uses two electrodes placed on one of the user’s hands. You must connect the two electrodes to ensure qualitative data.
-            Breathing Sensor This sensor uses a stretchable band that must be placed around the user’s ribs and will detect when the user inhales and exhales.
+              <span className={styles.customFontcolor2}>ECG Sensor</span> This sensor uses three electrodes placed on the user’s upper body. You must connect the three electrodes to the sensor to ensure qualitative data. The reference electrode can be placed around the left lowest rib for an easier installation.<br />
+              <span className={styles.customFontcolor2}>EDA Sensor</span> This sensor uses two electrodes placed on one of the user’s hands. You must connect the two electrodes to ensure qualitative data.<br />
+              <span className={styles.customFontcolor2}>Breathing Sensor</span> This sensor uses a stretchable band that must be placed around the user’s ribs and will detect when the user inhales and exhales.
               </p>
             </div>
 
             {/* Image Container */}
             <div className={styles.imageContainer}>
-              <img src="/aol_sensor.png" alt="sensors" className={styles.smallImage} />
+              <img src="/aol_sensors.png" alt="sensors" className={styles.smallImage} />
             </div>
           </div>
           <div className={styles.imageContainer}>
@@ -210,20 +211,20 @@ The vision behind this project stems from the desire to create innovative ways f
           
           <h2 className={styles.moreProjectSmall}>Light projection</h2>
           {/* Text Container */}
-          <div className={styles.paragraphTexthalf}>
+          <div className={styles.paragraphText}>
               <p>
-              text wall sculpture
+              A <span className={styles.customFontcolor2}>wall sculpture</span> was created to enhance the projection of the artwork. Its design emphasizes the <span className={styles.customFontcolor2}>volume</span> of the projection and adds greater <span className={styles.customFontcolor2}>depth</span> through its patterns.
               </p>
             </div>
 
             {/* Image Container */}
             <div className={styles.imageContainer}>
-              <img src="/aol_structure.png" alt="sculpture" className={styles.longImage} />
+              <img src="/aol_wallsculpture.png" alt="sculpture" className={styles.longImage} />
             </div>
 
-          <div className={styles.paragraphTexthalf}>
+          <div className={styles.paragraphText}>
               <p>
-              text colors
+              Each <span className={styles.customFontcolor2}>color</span> holds a specific meaning, so we assigned different colors to represent the <span className={styles.customFontcolor2}>various values measured</span> by the sensors on the user.
               </p>
             </div>
 
@@ -233,9 +234,12 @@ The vision behind this project stems from the desire to create innovative ways f
             </div>
 
             {/* Text Container */}
-            <div className={styles.paragraphTexthalf}>
+            <div className={styles.paragraphText}>
               <p>
-              text shapes
+              Each space and pattern in the installation corresponds to an animation that varies based on the types of values detected: <br />
+              <span className={styles.customFontcolor2}>Parallel lines</span> move in depth according to the skin's conductivity levels.<br />
+At the center, a <span className={styles.customFontcolor2}>circle</span> flashes in sync with the heart's contractions and changes color based on its value.<br />
+<span className={styles.customFontcolor2}>Triangles</span> change color depending on the number of breaths per minute and adjust their opacity to match this rhythm.<br />
               </p>
             </div>
 
@@ -249,12 +253,6 @@ The vision behind this project stems from the desire to create innovative ways f
           <h2 className={styles.moreProjectSmall}>Immersive experience</h2>
 
   
-            <div className={styles.paragraphText}>
-            
-              <p>
-             Text
-</p>
-            </div>
 
 
             <div className={styles.imageContainer}>
@@ -281,19 +279,10 @@ The vision behind this project stems from the desire to create innovative ways f
           <div className={styles.contactContainer}>
             <div className={styles.formContainer}>
               <h2>GET IN TOUCH</h2>
-              <form className={styles.contactForm}>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" placeholder="Please enter your email" required />
-
-                <label htmlFor="mobile">Mobile</label>
-                <input type="tel" id="mobile" placeholder="Enter your mobile" required />
-
-                <label htmlFor="message">Message</label>
-                <textarea id="message" placeholder="Enter your message" required></textarea>
-
-                <button type="submit">Submit</button>
-              </form>
-            </div>
+              <div>
+      <ContactForm />
+    </div>
+    </div>
             <div className={styles.mapContainer}>
               <h2>MY LOCATION</h2>
               <iframe
@@ -315,6 +304,9 @@ The vision behind this project stems from the desire to create innovative ways f
     <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
     <a href="https://www.linkedin.com/in/ines-beaunoir/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
       <img src="linkedIn.png" alt="LinkedIn" className={styles.linkedinLogo} />
+    </a>
+    <a href="https://github.com/inesbnr" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
+      <img src="GitHub.png" alt="GitHUb" className={styles.linkedinLogo} />
     </a>
   </div>
 </footer>

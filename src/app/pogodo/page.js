@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity, useAnimation } from 'framer-motion';
 import Lenis from 'lenis';
 
+import ContactForm from '../ContactForm';
+
 export default function Pogodo() {
   const [hovered, setHovered] = useState(false); // State to track hover
 
@@ -346,6 +348,9 @@ With <span className={styles.customFontbig}>POGODO</span>, you’re choosing a p
     <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
     <a href="https://www.linkedin.com/in/ines-beaunoir/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
       <img src="linkedIn.png" alt="LinkedIn" className={styles.linkedinLogo} />
+    </a>
+    <a href="https://github.com/inesbnr" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
+      <img src="GitHub.png" alt="GitHUb" className={styles.linkedinLogo} />
     </a>
   </div>
 </footer>

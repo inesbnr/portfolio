@@ -12,8 +12,13 @@ import { motion, useScroll, useSpring, useTransform, useMotionValue, useVelocity
 import Lenis from 'lenis';
 import dynamic from 'next/dynamic';
 
+import ContactForm from '../ContactForm';
+
+import { Bracelet } from "../components/bracelet";
+
 // Dynamically load the Three.js scene to avoid SSR issues
 const ThreeScene = dynamic(() => import('../components/ThreeScene'), { ssr: false });
+
 
 export default function Running() {
   
@@ -148,7 +153,7 @@ export default function Running() {
             {/* Text Container */}
             <div className={styles.overviewText}>
             <p>
-  My innovation project features a <span className={styles.customFontbig}>bracelet</span> and <span className={styles.customFontbig}>socks</span> designed to enhance <span className={styles.customFontcolor}>running performance</span> while reducing the risk of <span className={styles.customFontcolor}>injury</span>. They aim to coach and improve <span className={styles.customFont}>biomechanical efficiency</span> and boost <span className={styles.customFont}>cardiovascular endurance</span> for a safer, more effective running experience.
+  My innovation project features a <span className={styles.customFontbig}>bracelet</span> and <span className={styles.customFontbig}>socks</span> designed to enhance <span className={styles.customFontcolor}>running performance</span> while reducing the risk of <span className={styles.customFontcolor}>injury</span>. They aim to coach and improve <span className={styles.customFontcolor}>biomechanical efficiency</span> and boost <span className={styles.customFontcolor}>cardiovascular endurance</span> for a safer, more effective running experience.
 </p>
 
             </div>
@@ -156,10 +161,10 @@ export default function Running() {
             <h2 className={styles.aboutProjectSmall}>My vision /</h2>
          
          {/* Text Container */}
-         <div className={styles.overviewText}>
+         <div className={styles.customFontbigcolor2}>
            <p>
-           <span className={styles.customFontbigcolor}> Design new ways for people to interact with
-           their own biosignals for health and performance improvements in sports</span>
+           <span className={styles.customFontbigcolor2}> &quot; Design new ways for people to interact with
+           their own biosignals for health and performance improvements in sports &quot;</span>
 
            </p>
          </div>
@@ -178,17 +183,22 @@ export default function Running() {
           </div>
           <div className={styles.overviewText}>
             <p>
-            I'm passionate about both <span className={styles.customFontbig}>engineering</span> and <span className={styles.customFontbig}>running</span>, which inspired me to combine the two. <span className={styles.customFontcolor}>Running</span> offers many benefits, such as better <span className={styles.customFontcolor}>cardiovascular</span> and <span className={styles.customFontcolor}>mental health</span>, as well as the chance to <span className={styles.customFont}>set goals</span> and <span className={styles.customFont}>challenge yourself</span>. After experiencing an <span className={styles.customFontcolor}>injury</span> and learning that <span className={styles.customFontcolor}> 68.3% of runners </span> face similar issues, I wanted to create a solution to help <span className={styles.customFont}>prevent and manage injuries</span> while still enjoying all the <span className={styles.customFont}> benefits of running</span>.
+            I'm passionate about both <span className={styles.customFontbig}>engineering</span> and <span className={styles.customFontbig}>running</span>, which inspired me to combine the two. <span className={styles.customFontcolor}>Running</span> offers many benefits, such as better <span className={styles.customFontcolor}>cardiovascular</span> and <span className={styles.customFontcolor}>mental health</span>, as well as the chance to <span className={styles.customFontcolor}>set goals</span> and <span className={styles.customFontcolor}>challenge yourself</span>. After experiencing an <span className={styles.customFontcolor}>injury</span> and learning that <span className={styles.customFontcolor}> 68.3% of runners </span> face similar issues, I wanted to create a solution to help <span className={styles.customFontcolor}>prevent and manage injuries</span> while still enjoying all the <span className={styles.customFontcolor}> benefits of running</span>.
             </p>
           </div>
           </div>
+          <h2 className={styles.aboutProjectSmall}>3D Overview /</h2>
+          
 
 
           </section>
-
-          <section id="section3D" className={styles.section3D}>
+          
+            <section id="section3D" className={styles.section3D}>
+            
           <ThreeScene/>
           </section>
+         
+          
 
           
 
@@ -248,7 +258,7 @@ export default function Running() {
             </div>
             {/* Image Container */}
             <div className={styles.imageContainer}>
-              <img src="/socks_uiux.png" alt="Prototypes" className={styles.longImage} />
+              <img src="/running_uiux.png" alt="Prototypes" className={styles.longImage} />
               
         
           </div>
@@ -264,7 +274,7 @@ export default function Running() {
         
           </div>
           <motion.h1
-        className={`${styles.separator} ${styles.outlinedProcess}`}
+        className={`${styles.separator} ${styles.outlinedProcess2}`}
         initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
         animate={controls} // Bind the animation controls to the element
         transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
@@ -304,7 +314,7 @@ export default function Running() {
               
         
           </div>
-        
+
         
 
           </section>
@@ -324,18 +334,9 @@ export default function Running() {
           <div className={styles.contactContainer}>
             <div className={styles.formContainer}>
               <h2>GET IN TOUCH</h2>
-              <form className={styles.contactForm}>
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" placeholder="Please enter your email" required />
-
-                <label htmlFor="mobile">Mobile</label>
-                <input type="tel" id="mobile" placeholder="Enter your mobile" required />
-
-                <label htmlFor="message">Message</label>
-                <textarea id="message" placeholder="Enter your message" required></textarea>
-
-                <button type="submit">Submit</button>
-              </form>
+              <div>
+      <ContactForm />
+    </div>
             </div>
             <div className={styles.mapContainer}>
               <h2>MY LOCATION</h2>
@@ -358,6 +359,9 @@ export default function Running() {
     <img src="ineslogocontourportfolio.png" alt="Ines Logo" className={styles.logo} />
     <a href="https://www.linkedin.com/in/ines-beaunoir/" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
       <img src="linkedIn.png" alt="LinkedIn" className={styles.linkedinLogo} />
+    </a>
+    <a href="https://github.com/inesbnr" target="_blank" rel="noopener noreferrer" className={styles.linkedinLink}>
+      <img src="GitHub.png" alt="GitHUb" className={styles.linkedinLogo} />
     </a>
   </div>
 </footer>

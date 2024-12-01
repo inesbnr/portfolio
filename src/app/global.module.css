@@ -291,10 +291,8 @@
   position: absolute;
   width: 100%;
   height: clamp(10rem, 40vw, 100rem); /* Vous pouvez aussi utiliser 100% si vous voulez qu'il occupe toute la hauteur de l'écran */
+overflow:visible;
 }
-
-
-
 
 
 /* Présentation avec texte puis photo à côté*/
@@ -417,6 +415,7 @@
 
 /* Section de projets */
 .section {
+  scroll-margin-top: 25px; /* Décalage automatique */
   display: flex;
   flex-direction: column; /* Stack the projects vertically */
   gap: 0px;               /* Adds space between the projects */
@@ -589,14 +588,26 @@
 
 .skillsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+ 
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajuste les colonnes automatiquement */
+  gap: 2rem; /* Espacement entre les colonnes et rangées */
   padding: 10px;
   margin-top: 2vw;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box; /* Inclut padding et bordures dans les dimensions */
 }
+
+
 
 /* Skill Card Styles */
 .skillCard {
+  width: 22vw; /* Largeur fixe basée sur la colonne de la grille */
+  height: 100%; /* Hauteur fixe pour uniformiser */
+  justify-self: center; /* Centre verticalement le contenu */
+  align-self: center; /* Centre horizontalement le contenu */
+  
   background-color: rgba(249, 249, 249, 0.2);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
@@ -678,17 +689,26 @@
   .skillsContainer {
     grid-template-columns: repeat(1, 1fr);
   }
+  .skillCard {
+    width: 85vw; /* Largeur fixe basée sur la colonne de la grille */
+    height: 100%; /* Hauteur fixe pour uniformiser */
+  }
 }
 
 /* For medium screens (2 cards per row) */
-@media (min-width: 601px) and (max-width: 1024px) {
+@media (min-width: 601px) and (max-width: 1275px) {
   .skillsContainer {
     grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+  .skillCard {
+    width: 45vw; /* Largeur fixe basée sur la colonne de la grille */
+    height: 100%; /* Hauteur fixe pour uniformiser */
   }
 }
 
 /* For larger screens (4 cards per row) */
-@media (min-width: 1025px) {
+@media (min-width: 1275px) {
   .skillsContainer {
     grid-template-columns: repeat(4, 1fr);
   }

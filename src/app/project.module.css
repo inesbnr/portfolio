@@ -258,7 +258,7 @@ padding-top: 10vh;
   white-space: nowrap; /* Prevent text wrapping */
   display: inline-block; /* Allows translation */
   position: relative; /* Relative positioning */
-  left: -30vw; /* Adjust initial position */
+  left: -130vh; /* Adjust initial position */
 }
 
   .outlinedOverview {
@@ -292,7 +292,23 @@ padding-top: 10vh;
       white-space: nowrap; /* Prevent wrapping */
       display: inline-block; /* Allows for translation without wrapping */
       position: relative; /* Allows for relative positioning */
-      left: -15vw; /* Adjust initial position */
+      left: -60vw; /* Adjust initial position */
+  }
+  .outlinedProcess2 {
+    font-size: clamp(25px, 4.5vw, 50px); /* Responsive font size */
+    font-weight: 700;
+    color: #12263A; /* Couleur du texte principal */
+    text-shadow: 
+      -0.5px -0.5px 0 #F4D1AE,  
+      0.5px -0.5px 0 #F4D1AE,
+      -0.5px 0.5px 0 #F4D1AE,
+      0.5px 0.5px 0 #F4D1AE; /* Ombres pour créer l'effet de contour */
+      transform: translateX(-100%); /* Set initial position off-screen left */
+      transition: transform 0.8s ease-out; /* Smooth transition */
+      white-space: nowrap; /* Prevent wrapping */
+      display: inline-block; /* Allows for translation without wrapping */
+      position: relative; /* Allows for relative positioning */
+      left: -110vh; /* Adjust initial position */
   }
   
  /* General padding for larger screens */
@@ -384,11 +400,7 @@ padding-top: 10vh;
     padding-top: 1vh;
     
   }
-  .overviewText {
-    max-width: 100%;
-    padding-top: 1vh;
-    
-  }
+
 
   .smallImage {
     width: 75%; /* Reduce image size */
@@ -460,8 +472,9 @@ padding-top: 10vh;
   padding: 3vh 2vw;
 }
 .longimageround {
+  max-width: 100%;
   display: block; /* Supprime tout espacement ajouté par défaut */
-  width: 100%; /* Limite la largeur à celle du conteneur parent */
+  width: clamp(360px, 400vw, 660px); /* Limite la largeur à celle du conteneur parent */
   height: auto; /* Conserve les proportions de l'image */
   margin: 0 auto; /* Centre horizontalement */
   /* S'assure que l'image s'adapte dans le conteneur sans être coupée */
@@ -493,7 +506,7 @@ padding-top: 10vh;
 
 /* CONTACT PART */
 .contactSection {
-  padding: 40px 20px; /* Add some padding */
+  padding: 20px 20px; /* Add some padding */
   background-color: #12263A; /* Background color */
   color: #CEFFED; /* Text color */
 }
@@ -646,6 +659,7 @@ padding-top: 10vh;
 
 
   .paragraphText {        /* Positionne le titre en haut à gauche */
+    flex: 1;
     max-width: 100%;
     padding-top: 1vh;
     text-align: left;
@@ -702,6 +716,14 @@ padding-top: 10vh;
     font-size: clamp(16px, 1.5vw, 26px); /* Matches the surrounding text's size */
     text-align: center;
   }
+  .customFontbigcolor2 {
+    font-family: 'Montserrat', sans-serif; /* Ensure fallback fonts are specified */
+    font-weight: 700; /* Adjust font-weight as necessary */
+    font-size: clamp(16px, 2vw, 26px); /* Matches the surrounding text's size */
+    text-align: center;
+    color: #D1FEFF;    
+  
+  }
   
   .customFontcolor {
     font-weight: 800; /* Adjust font-weight as necessary */
@@ -750,4 +772,4 @@ padding-top: 10vh;
     align-items: center;    /* Centre horizontalement */
     gap: 20px;              /* Espacement entre les iframes */
   }
-  
+ 

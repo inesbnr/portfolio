@@ -15,17 +15,20 @@ import { OrbitControls, useGLTF, PerspectiveCamera } from '@react-three/drei';
 
 export default function Home() {
 
-  const [hovered, setHovered] = useState(false); // State to track hover
-  
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-  const { scrollYProgress } = useScroll(); // This gives the scroll progress
-  const yRange = useTransform(scrollYProgress, [0, 1], [0, 100]); // Controls how much the image moves based on scroll
+  const handleMouseEnter = (cardId) => setHoveredCard(cardId);
+  const handleMouseLeave = () => setHoveredCard(null);
+
+
+  const { scrollYProgress } = useScroll(); 
+  const yRange = useTransform(scrollYProgress, [0, 1], [0, 100]); 
 
   
   const [scrollPos, setScrollPos] = useState(0);
-  const controls = useAnimation(); // Animation control
+  const controls = useAnimation(); 
 
-  // Update scroll position
+
   useEffect(() => {
     const handleScroll = () => {
       setScrollPos(window.scrollY);
@@ -38,13 +41,13 @@ export default function Home() {
     };
   }, []);
 
-  // Effect to trigger animation based on scroll position
+  
   useEffect(() => {
-    // Adjust this range for when you want the animation to trigger based on scroll
-    if (scrollPos > 100) {
-      controls.start({ x: (scrollPos-150)/10, opacity: 1 }); // Move the element to original position and set opacity to 1
+    
+    if (scrollPos > 80) {
+      controls.start({ x: (scrollPos-150)/10, opacity: 1 });
     } else {
-      controls.start({ x: -100, opacity: 0 }); // Move the element off-screen to the left and make it transparent
+      controls.start({ x: -100, opacity: 0 }); 
     }
   }, [scrollPos, controls]);
 
@@ -64,25 +67,23 @@ export default function Home() {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
-        setDropdownVisible(false); // Hide dropdown if screen is larger than 768px
+        setDropdownVisible(false); // Hide small navbar if screen is larger than 768px
       }
     };
 
-    // Add event listener for resize
+  // Add event listener for resize
     window.addEventListener('resize', handleResize);
 
-    // Clean up on unmount
+  // Clean up 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  // Toggle dropdown visibility
+  //Dropdown visibility
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
   };
-
-  
 
   return (
     <div className={styles.container}>
@@ -95,14 +96,14 @@ export default function Home() {
       <div>
       {/* Navbar */}
       <header className={styles.navbar}>
-        {/* Hamburger Menu for Small Screens */}
+        {/* Menu for small screens */}
         <div className={styles.hamburger} onClick={toggleDropdown}>
           <div></div>
           <div></div>
           <div></div>
         </div>
 
-        {/* Navigation Items (Desktop) */}
+        {/* Navigation Items */}
         <ul className={styles.navItems}>
           <li><a href="/" >Home</a></li>
           <li><a href="#aboutme">About Me</a></li>
@@ -137,16 +138,13 @@ export default function Home() {
             left: 0, 
             width: '100%', 
             height: '100%',
-            pointerEvents: 'auto', // Makes sure the canvas doesn't block interactions with the image
+            pointerEvents: 'auto',
           }}
           camera={{ position: [0, 0, 5], fov: 45 }} 
         >
           {/* Ambient light and directional light */}
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 10]} intensity={1} />
-
-
-              {/* OrbitControls for navigation */}
                {/* OrbitControls for navigation with zoom disabled */}
                 <OrbitControls enableZoom={false} />
                 <Ines/>
@@ -155,17 +153,12 @@ export default function Home() {
             </div>
         </section>
 
-
-        
-
-      
-
         {/* About Me Section */}
         <section id="aboutme" className={styles.section}>
         <motion.h1
         className={`${styles.separator} ${styles.outlinedAboutme}`}
         initial={{ x: -100, opacity: 0 }} // Start off-screen and transparent
-        animate={controls} // Bind the animation controls to the element
+        animate={controls}
         transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition
       >
         ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME • ABOUT ME
@@ -174,10 +167,10 @@ export default function Home() {
           <div className={styles.presentationSection}>
           <motion.h2
             className={styles.aboutMeTitle}
-            initial={{ opacity: 0 }} // Start with opacity 0 (invisible)
-            whileInView={{ opacity: 1 }} // Fade in to full opacity when in view
-            viewport={{ once: true, amount: 0.5 }} // Trigger when 20% of the element is in view
-            transition={{ duration: 2, ease: "easeOut" }} // Duration of the fade-in animation
+            initial={{ opacity: 0 }} 
+            whileInView={{ opacity: 1 }} 
+            viewport={{ once: true, amount: 0.5 }} 
+            transition={{ duration: 2, ease: "easeOut" }}
           >
             ABOUT ME /
           </motion.h2>
@@ -203,7 +196,7 @@ export default function Home() {
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.5 }}
   transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-  whileHover={{ scale: 1.1 }} // Add this line for the hover effect
+  whileHover={{ scale: 1.1 }} 
 >
   <img src="/photomemoji.png" alt="Photo" className={styles.profileImage} />
 </motion.div>
@@ -367,16 +360,28 @@ export default function Home() {
 
        
 
-            <div className={styles.expDescription}>
+          <motion.div
+    className={styles.expDescription}
+    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
+    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
+    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
   <h3>
     <span className={styles.year}>2020 - 2025</span>
     <span className={styles.school}>École Supérieure d'Ingénieur Léonard de Vinci (ESILV)</span>
     <span className={styles.location}>Paris La Défense, France</span>
     <span className={styles.degree}>Master's Degree in Engineering</span>
   </h3>
-</div>
+  </motion.div>
 
-<div className={styles.expDescription}>
+  <motion.div
+    className={styles.expDescription}
+    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
+    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
+    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
   <h3>
     <span className={styles.year}>2023 - 2025</span>
     <span className={styles.school}>Institute for Future Technologies (IFT)</span>
@@ -384,24 +389,36 @@ export default function Home() {
     <span className={styles.degree}>MSc in Innovation and Creative Technology</span>
     <span className={styles.group}>Human Learning Research Group</span>
   </h3>
-</div>
+  </motion.div>
 
-<div className={styles.expDescription}>
+  <motion.div
+    className={styles.expDescription}
+    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
+    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
+    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
   <h3>
     <span className={styles.year}>2022</span>
     <span className={styles.school}>Sungkyunkwan University (SKKU)</span>
     <span className={styles.location}>Seoul, South Korea</span>
     <span className={styles.degree}>International Exchange Semester</span>
   </h3>
-</div>
+  </motion.div>
 
-<div className={styles.expDescription}>
+  <motion.div
+    className={styles.expDescription}
+    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
+    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
+    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
   <h3>
     <span className={styles.year}>2020</span>
     <span className={styles.school}>Lycée Notre-Dame de Boulogne</span>
     <span className={styles.degree}>Scientific Baccalaureate, Specialization in Mathematics, with Honors</span>
   </h3>
-</div>
+  </motion.div>
   </div>
 
   {/* Work Experiences Section */}
@@ -418,46 +435,76 @@ export default function Home() {
           </motion.h2>
          
       
-            <div className={styles.expDescription}>
+          <motion.div
+    className={styles.expDescription}
+    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
+    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
+    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
   <h3>
     <span className={styles.year}>2024</span>
     <span className={styles.company}>Sopra Steria</span>
     <span className={styles.position}>Business Analyst Intern</span>
-    <span className={styles.description}>Technical Internship as a software business analyst on the BRASIDAS Project for Defense & Security Business Unit</span>
+    <span className={styles.description}>Technical Internship as a software business analyst on the BRASIDAS Project for Defense & Security Business Unit.</span>
   </h3>
-</div>
+  </motion.div>
 
-<div className={styles.expDescription}>
+<motion.div
+    className={styles.expDescription}
+    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
+    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
+    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
   <h3>
     <span className={styles.year}>2023</span>
     <span className={styles.company}>BDE Vegas</span>
     <span className={styles.position}>Secretary General of the Student Council</span>
     <span className={styles.description}>Management & Coordination of various projects throughout the year. Organization of events and a trip to Europe.</span>
   </h3>
-</div>
+  </motion.div>
 
-<div className={styles.expDescription}>
+<motion.div
+    className={styles.expDescription}
+    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
+    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
+    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
   <h3>
     <span className={styles.year}>2024</span>
     <span className={styles.company}>National Domain of Saint-Cloud</span>
     <span className={styles.position}>Student Job</span>
     <span className={styles.description}>Welcoming visitors, cash management, surveillance.</span>
   </h3>
-</div>
+  </motion.div>
 
-<div className={styles.expDescription}>
+<motion.div
+    className={styles.expDescription}
+    initial={{ opacity: 0, y: 50 }} // Start invisible and moved down
+    whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
+    viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
   <h3>
     <span className={styles.year}>2022</span>
     <span className={styles.company}>Médiamétrie</span>
     <span className={styles.position}>Assistant Research Intern</span>
     <span className={styles.description}>Business discovery internship at the radio department for the release of the audience study.</span>
   </h3>
-</div>
+  </motion.div>
   </div>
 </div>
 <Link href="/Ines-BEAUNOIR_CV.pdf">
-                  <button className={styles.resumebutton}>See my full resume →</button>
-                </Link>
+  <motion.button
+    className={styles.resumebutton}
+    whileHover={{ scale: 1.1, backgroundColor: "#f0f0f0" }} // Scale up and change color
+    whileTap={{ scale: 0.95 }} // Slightly shrink on tap
+  >
+    See my full resume →
+  </motion.button>
+</Link>
 
 </section>
 
@@ -507,9 +554,9 @@ export default function Home() {
             {/* Programming Languages Card */}
             <motion.div
       className={styles.skillCard}
-      onMouseEnter={() => setHovered(true)}  // When mouse enters, set hovered to true
-      onMouseLeave={() => setHovered(false)} // When mouse leaves, set hovered to false
-      variants={{
+      onMouseEnter={() => handleMouseEnter('card1')}
+  onMouseLeave={handleMouseLeave} 
+  variants={{
         hidden: { opacity: 0, y: 0 },
         visible: { opacity: 1, y: 0 },
       }}
@@ -517,7 +564,7 @@ export default function Home() {
       animate="visible" // Animate to visible when not hovered
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      {hovered ? (
+      {hoveredCard === 'card1' ? (
         // Logos shown when hovered
         <div className={styles.logoGrid}>
           <img src="/logocode/logo1.png" alt="C Logo" className={styles.logoskills} />
@@ -548,8 +595,8 @@ export default function Home() {
             {/* Software & Tools Card */}
             <motion.div
       className={styles.skillCard}
-      onMouseEnter={() => setHovered(true)}  // When mouse enters, set hovered to true
-      onMouseLeave={() => setHovered(false)} // When mouse leaves, set hovered to false
+      onMouseEnter={() => handleMouseEnter('card2')}
+  onMouseLeave={handleMouseLeave}
       variants={{
         hidden: { opacity: 0, y: 0 },
         visible: { opacity: 1, y: 0 },
@@ -558,7 +605,7 @@ export default function Home() {
       animate="visible" // Animate to visible when not hovered
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      {hovered ? (
+      {hoveredCard === 'card2' ? (
         // Logos shown when hovered
         <div className={styles.logoGrid}>
           <img src="/logoapp/logo1.png" alt="C Logo" className={styles.logoskills} />

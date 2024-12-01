@@ -21,10 +21,15 @@ export default function ThreeScene() {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     mountRef.current.appendChild(renderer.domElement);
 
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 2, 4);
-
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
     const controls = new OrbitControls(camera, renderer.domElement);
+ controls.update(); 
+    camera.position.set(0, 3, 5);
+    // Optionally, if you want to set the camera rotation manually, you can use:
+
+
+   
+
 
     const clock = new THREE.Clock();
 
@@ -34,12 +39,73 @@ export default function ThreeScene() {
     const scenes = [];
     const mixers = [];
 
-    let isRunning = false;
+    let isRunning = true;
     let isSocks = false;
+    let isPlaying = false;
 
     // Fix duplicate event listener and raycaster/mouse definitions
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
+
+
+
+
+const section = document.getElementById('section3D');
+
+const buttoninfo = document.createElement('buttoninfo');
+buttoninfo.innerText = 'i';
+buttoninfo.id = 'buttoninfo';  // Add an ID for easier selection
+
+
+// Button positioning and styling
+
+buttoninfo.style.position = 'absolute';
+buttoninfo.style.top = '33px'; 
+buttoninfo.style.left = '17px';
+buttoninfo.style.padding = '2px 14px';  // Add padding for better sizing
+buttoninfo.style.fontSize = '20px';      // Set font size
+buttoninfo.style.fontWeight = '800';      // Set font size
+buttoninfo.style.fontFamily = 'Montserrat, sans-serif'; // Change font family
+buttoninfo.style.backgroundSize = 'cover';  // Ensure the background image covers the button area
+buttoninfo.style.color = '#12263A';             // White text color
+buttoninfo.style.border = '3px solid #12263A';             // Remove border
+buttoninfo.style.borderRadius = '50px';       // Rounded corners
+buttoninfo.style.cursor = 'pointer';         // Show pointer on hover
+buttoninfo.style.transition = 'background-color 0.3s ease';  // Smooth background color transition
+buttoninfo.style.display = 'none';
+
+// Append the button to the section
+section.appendChild(buttoninfo);
+
+// Tooltip content that appears when hovering
+const tooltipinfo = document.createElement('span');
+tooltipinfo.innerText = 'Welcome !\n Click on the socks to put them on the runner.\nClick on the wrist to see the bracelet.\nClick on the feet the see the socks.';
+tooltipinfo.style.position = 'absolute';
+tooltipinfo.style.width = '200px'; // Set a fixed width
+tooltipinfo.style.height = 'auto'; // Let the height adjust based on the content
+
+tooltipinfo.style.top = '50px'; // Position it below the button
+tooltipinfo.style.left = '0';
+tooltipinfo.style.padding = '5px 5px';
+tooltipinfo.style.backgroundColor = '#fff';
+tooltipinfo.style.color = '#12263A';
+tooltipinfo.style.border = '1px solid #12263A';
+tooltipinfo.style.borderRadius = '5px';
+tooltipinfo.style.fontSize = '14px';
+tooltipinfo.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.2)';
+tooltipinfo.style.display = 'none'; // Initially hidden
+buttoninfo.appendChild(tooltipinfo);
+
+// Show tooltip on hover
+buttoninfo.addEventListener('mouseenter', () => {
+    tooltipinfo.style.display = 'block';
+});
+
+// Hide tooltip when mouse leaves the button
+buttoninfo.addEventListener('mouseleave', () => {
+    tooltipinfo.style.display = 'none';
+});
+
 
     // Fonction pour créer les scènes
     function createScene1() {
@@ -48,7 +114,7 @@ export default function ThreeScene() {
         let currentModel = null;
         let mixer = null;
         let animationAction = null;
-        let isPlaying = false;
+
         let currentAnimationFile = '/models/TESTanim.glb'; // Initially set to 'TESTanim.glb'
 
 
@@ -74,10 +140,16 @@ export default function ThreeScene() {
         scene.add(pointLight);
 
 
+        const floorMaterial = new THREE.MeshStandardMaterial({ 
+            color: 0x888888, // Initial color
+            roughness: 0.5 
+        });
+
+
         // Sol
         const floor = new THREE.Mesh(
             new THREE.PlaneGeometry(50, 50),
-            new THREE.MeshStandardMaterial({ color: 0x888888, roughness: 0.5 })
+            floorMaterial
         );
         floor.rotation.x = -Math.PI / 2;
         floor.receiveShadow = true;
@@ -141,23 +213,27 @@ export default function ThreeScene() {
         loadAnimation(currentAnimationFile);
 
 const section = document.getElementById('section3D');
+
+
+
  // Create the button
 
 const buttonstartstop = document.createElement('buttonstartstop');
 buttonstartstop.innerText = 'Start/Stop';
+buttonstartstop.id = 'buttonstartstop';  // Add an ID for easier selection
+
 
 // Button positioning and styling
 
 buttonstartstop.style.position = 'absolute';
-buttonstartstop.style.top = '100px'; 
-buttonstartstop.style.left = '20px';
+buttonstartstop.style.top = '30px'; 
+buttonstartstop.style.left = '65px';
 buttonstartstop.style.padding = '10px 20px';  // Add padding for better sizing
 buttonstartstop.style.fontSize = '16px';      // Set font size
 buttonstartstop.style.fontFamily = 'Montserrat, sans-serif'; // Change font family
 buttonstartstop.style.backgroundSize = 'cover';  // Ensure the background image covers the button area
-buttonstartstop.style.backgroundColor = 'white';  // Ensure the background image covers the button area
-buttonstartstop.style.backgroundPosition = 'center';  // Position the background image in the center
-buttonstartstop.style.color = 'black';             // White text color
+buttonstartstop.style.backgroundColor = '#12263A';  // Ensure the background image covers the button area
+buttonstartstop.style.color = '#fff';             // White text color
 buttonstartstop.style.border = 'none';             // Remove border
 buttonstartstop.style.borderRadius = '20px';       // Rounded corners
 buttonstartstop.style.cursor = 'pointer';         // Show pointer on hover
@@ -184,16 +260,16 @@ scene.userData.startButton = buttonstartstop;
         scene.add(lowerZoneCube);
 
         // 3D Button for toggling between animations
-        const buttonGeometry2 = new THREE.BoxGeometry(0.8, 0.3, 0.5);
+        const buttonGeometry2 = new THREE.BoxGeometry(0.8, 0.6, 0.5);
         const buttonMaterial2 = new THREE.MeshBasicMaterial({ color: 0x000000, opacity: 0, transparent: true }); // A different color for the second button
         const buttonMesh2 = new THREE.Mesh(buttonGeometry2, buttonMaterial2);
-        buttonMesh2.position.set(2, -0.75, 0); // Position it to the right of the first button
+        buttonMesh2.position.set(1.1, -0.5, 0); // Position it to the right of the first button
         scene.add(buttonMesh2);
 
         // Load the socks.glb model
 
 gltfLoader.load(
-    '/models/socks.glb', // Path to the socks model
+    '/models/smartsocks.glb', // Path to the socks model
     (gltf) => {
         console.log('Socks model loaded:', gltf);
         
@@ -201,7 +277,7 @@ gltfLoader.load(
         scene.add(socksModel); // Add the socks model to the scene
 
         // Position the socks model at the same position as buttonMesh2
-        socksModel.position.set(2, -0.75, 0);
+        socksModel.position.set(1.1, -0.6, 0);
 
         // Optionally, scale and adjust the model if needed
         socksModel.scale.set(2, 2, 2); // Scale it to the right size
@@ -238,6 +314,8 @@ gltfLoader.load(
             toggleAnimations(); // Switch between the two animations
         }
     });
+
+ 
 
     buttonstartstop.addEventListener('click', () => {
       isPlaying = !isPlaying;
@@ -285,56 +363,83 @@ gltfLoader.load(
        
 
 // Create the button
-const button = document.createElement('button');
-button.innerText = 'Change Scene';
-
+const buttoncolor = document.createElement('button');
+buttoncolor.innerText = 'Scene Color';
+buttoncolor.id = 'buttoncolor';  // Add an ID for easier selection
+scene.userData.buttoncolor = buttoncolor;
 // Button positioning and styling
-button.style.position = 'absolute';
-button.style.top = '50px'; 
-button.style.left = '20px';
-button.style.padding = '10px 20px';  // Add padding for better sizing
-button.style.fontSize = '16px';      // Set font size
-button.style.fontFamily = 'Montserrat, sans-serif'; // Change font family
-button.style.backgroundSize = 'cover';  // Ensure the background image covers the button area
-button.style.backgroundPosition = 'center';  // Position the background image in the center
-button.style.color = 'white';             // White text color
-button.style.border = 'none';             // Remove border
-button.style.borderRadius = '20px';       // Rounded corners
-button.style.cursor = 'pointer';         // Show pointer on hover
-button.style.transition = 'background-color 0.3s ease';  // Smooth background color transition
-button.style.display = 'block'; // Initially hidden
+buttoncolor.style.position = 'absolute';
+buttoncolor.style.top = '30px'; 
+buttoncolor.style.right = '15px';
+buttoncolor.style.padding = '10px 20px';  // Add padding for better sizing
+buttoncolor.style.fontSize = '16px';      // Set font size
+buttoncolor.style.fontFamily = 'Montserrat, sans-serif'; // Change font family
+buttoncolor.style.backgroundSize = 'cover';  // Ensure the background image covers the button area
+buttoncolor.style.backgroundPosition = 'center';  // Position the background image in the center
+buttoncolor.style.backgroundColor = '#12263A';  // Position the background image in the center
+buttoncolor.style.color = 'white';             // White text color
+buttoncolor.style.border = 'none';             // Remove border
+buttoncolor.style.borderRadius = '20px';       // Rounded corners
+buttoncolor.style.cursor = 'pointer';         // Show pointer on hover
+buttoncolor.style.transition = 'background-color 0.3s ease';  // Smooth background color transition
+buttoncolor.style.display = 'block'; // Initially hidden
 
 // Append the button to the section
-section.appendChild(button);
+section.appendChild(buttoncolor);
 // Function to toggle between light and dark modes
-let isDarkMode = false;
+
 
 
         // Button click event listener
-button.addEventListener('click', () => {
-  isDarkMode = !isDarkMode;
+// Define the array of colors to cycle through
+const colors = ['#F4D1AE', '#D1FEFF', '#CEFFED', '#CCE5FF', '#FFF6F2'];
+const floorcolors= ['#c3a787', '#a0c7cc', '#a4ccbc', '#a3b6cc', '#ccc8bf']
+let colorIndex = 0; // Start at the first color
 
-  if (isDarkMode) {
-      // Set the scene background to dark
-      scene.background = new THREE.Color('#F4D1AE'); // Dark background
+// Button click event listener
+buttoncolor.addEventListener('click', () => {
+    // Update the scene background with the current color
+    scene.background = new THREE.Color(colors[colorIndex]);
+    floorMaterial.color.set(floorcolors[colorIndex]);
 
-
-      // Optionally, apply glowing effects, or neon materials if you want
-      // For example, you could apply glowing materials to models in the scene
-  } else {
-      // Set the scene background to light
-      scene.background = new THREE.Color(0xffffff); // Light background
-
-      // Reset any glowing materials to original ones if used
-      // Optionally, you could reset materials here if you have specific models
-  }
-
-  console.log(isDarkMode ? 'Dark mode activated' : 'Light mode activated');
+    // Increment the index to the next color
+    colorIndex = (colorIndex + 1) % colors.length; // Loop back to the start when reaching the end
 });
+
 
         return scene;
     }
 
+
+    function createBackButton(scene) {
+        const section = document.getElementById('section3D');
+        const buttonback = document.createElement('button');
+        buttonback.innerText = 'Go Back';
+        buttonback.id = 'buttonback';
+
+        // Button styling
+        buttonback.style.position = 'absolute';
+        buttonback.style.top = '30px';
+        buttonback.style.right = '20px';
+        buttonback.style.padding = '10px 20px';
+        buttonback.style.fontSize = '16px';
+        buttonback.style.fontFamily = 'Montserrat, sans-serif';
+        buttonback.style.backgroundColor = '#12263A';
+        buttonback.style.color = '#fff';
+        buttonback.style.border = 'none';
+        buttonback.style.borderRadius = '20px';
+        buttonback.style.cursor = 'pointer';
+        buttonback.style.transition = 'background-color 0.3s ease';
+        buttonback.style.display = 'none';
+
+        buttonback.addEventListener('click', () => {
+            switchScene(0);
+            buttonback.style.display = 'none';
+        });
+
+        section.appendChild(buttonback);
+        return buttonback;
+    }
 
     function createScene2() {
         const scene = new THREE.Scene();
@@ -354,7 +459,7 @@ button.addEventListener('click', () => {
         const button = document.createElement('button');
         button.innerText = 'Light / Dark Mode';
         button.style.position = 'absolute';
-        button.style.top = '50px'; 
+        button.style.top = '30px'; 
         button.style.left = '20px';
         button.style.padding = '10px 20px';  // Add padding for better sizing
         button.style.fontSize = '16px';      // Set font size
@@ -518,7 +623,7 @@ button.addEventListener('click', () => {
         scene.userData.tooltip.style.padding = '10px 15px';
         scene.userData.tooltip.style.top= '200px';
         scene.userData.tooltip.style.borderRadius = '5px';
-        scene.userData.tooltip.style.fontFamily = 'Arial, sans-serif';
+        scene.userData.tooltip.style.fontFamily = 'Montserrat, sans-serif';
         scene.userData.tooltip.style.zIndex = 101; // Ensure it is above the canvas
        
 
@@ -527,6 +632,9 @@ button.addEventListener('click', () => {
         scene.userData.tooltip.style.display = 'none';
 
         section.appendChild(scene.userData.tooltip);
+        
+
+        scene.userData.backButton = createBackButton(scene);
 
         return scene;
     }
@@ -535,6 +643,13 @@ button.addEventListener('click', () => {
 
     function createScene3() {
         const scene = new THREE.Scene();
+        
+        // Initialize userData object with required properties
+        scene.userData = {
+            interactiveCubes: [],
+            raycaster: new THREE.Raycaster(),
+            mouse: new THREE.Vector2()
+        };
 
         // Lumières
         const ambientLight = new THREE.AmbientLight(0xffffff, 2);
@@ -566,10 +681,11 @@ button.addEventListener('click', () => {
 
         // Modèle animé
         const gltfLoader = new GLTFLoader();
-        gltfLoader.load('/models/socks.glb', (gltf) => {
+        gltfLoader.load('/models/smartsocks.glb', (gltf) => {
             const model = gltf.scene;
-            model.position.set(0, 0.2, 0);
+            model.position.set(0, 1.2, 0);
             model.scale.set(10, 10, 10);
+            model.rotation.y = Math.PI / 3; // Rotate 45 degrees around the X-axis
             model.traverse((child) => {
                 if (child.isMesh) {
                     child.castShadow = true;
@@ -580,7 +696,56 @@ button.addEventListener('click', () => {
             scene.add(model);
         });
 
+        // Create cubes
+        const cubeDescriptions = [
+            "EMG sensors detects muscles activity",
+            "Pressure sensors detects stride patterns while running",
+            "IMU sensors detects movements and position of the feet"
+        ];
+
+        const cubePositions = [
+          { x: -1.3, y: 2.9, z: 1.65 },  // Position of the first cube
+          { x: -1.3, y: 0.75, z: 1.65 },   // Position of the second cube
+          { x: -1.3, y: 2.5, z: 1.65 }    // Position of the third cube
+        ];
         
+        for (let i = 0; i < 3; i++) {
+            const cube = new THREE.Mesh(
+                new THREE.BoxGeometry(0.5, 0.2, 0.6),
+                new THREE.MeshBasicMaterial({ color: 0x000000, opacity: 0, transparent: true })
+            );
+            // Set the cube position from the cubePositions array
+            const position = cubePositions[i];
+            cube.position.set(position.x, position.y, position.z);
+            cube.userData.description = cubeDescriptions[i];
+            scene.userData.interactiveCubes.push(cube);
+            scene.add(cube);
+        }
+
+        // Create tooltip
+        scene.userData.tooltip = document.createElement('div');
+        scene.userData.tooltip.style.position = 'absolute';
+        scene.userData.tooltip.style.background = 'rgba(0, 0, 0, 0.7)';
+        scene.userData.tooltip.style.color = 'white';
+        scene.userData.tooltip.style.padding = '10px 15px';
+        scene.userData.tooltip.style.top= '200px';
+        scene.userData.tooltip.style.borderRadius = '5px';
+        scene.userData.tooltip.style.fontFamily = 'Montserrat, sans-serif';
+        scene.userData.tooltip.style.zIndex = 101; // Ensure it is above the canvas
+       
+
+
+        scene.userData.tooltip.style.pointerEvents = 'none';
+        scene.userData.tooltip.style.display = 'none';
+
+        section.appendChild(scene.userData.tooltip);
+        
+
+        
+
+        
+        scene.userData.backButton = createBackButton(scene);
+
         return scene;
     }
 
@@ -598,9 +763,11 @@ button.addEventListener('click', () => {
         
         switch(sceneIndex) {
             case 0:
+
                 setupScene1Listeners();
                 break;
             case 1:
+            
                 setupScene2Listeners();
                 break;
             case 2:
@@ -635,6 +802,8 @@ button.addEventListener('click', () => {
 
     // Fix setupScene1Listeners to use the correct variables
     function setupScene1Listeners() {
+        buttoninfo.style.display = 'block';
+
         const scene = scenes[0];
         const upperZoneCube = scene.children.find(child => 
             child.geometry?.type === 'BoxGeometry' && 
@@ -668,8 +837,47 @@ button.addEventListener('click', () => {
                 if (intersectedObject === upperZoneCube) {
                     console.log(`up`);
                     switchScene(1);
+                    setupScene2Listeners();
+                             // Get the section where the button is located
+                    const section = document.getElementById('section3D');
+
+                    // Hide buttons instead of removing them
+                    const buttonstartstop = section.querySelector('#buttonstartstop');
+                    if (buttonstartstop) {
+                        buttonstartstop.style.display = 'none';
+                    }
+                    
+                    const buttoninfo = section.querySelector('#buttoninfo');
+                    if (buttoninfo) {
+                        buttoninfo.style.display = 'none';
+                    }
+
+                    const buttoncolor = section.querySelector('#buttoncolor');
+                    if (buttoncolor) {
+                        buttoncolor.style.display = 'none';
+                    }
+        
                 } else if (intersectedObject === lowerZoneCube) {
+                    scenes[0].userData.startButton.style.display = 'none';
                     switchScene(2);
+                    setupScene3Listeners();
+                    const section = document.getElementById('section3D');
+                    const buttoncolor = section.querySelector('#buttoncolor');
+                    if (buttoncolor) {
+                        buttoncolor.style.display = 'none';
+                    }
+
+                    const button = section.querySelector('#buttonstartstop');
+                    if (button) {
+                        button.style.display = 'none';
+                    }
+                    
+                    const buttoninfo = section.querySelector('#buttoninfo');
+                    if (buttoninfo) {
+                        buttoninfo.style.display = 'none';
+                    }
+                    
+                  
                 }
             }
         };
@@ -682,6 +890,8 @@ button.addEventListener('click', () => {
 
 
     function setupScene2Listeners() {
+
+
         const scene = scenes[1];
         const sceneData = scene.userData;
         
@@ -713,12 +923,12 @@ button.addEventListener('click', () => {
     }
 
     function setupScene3Listeners() {
-        const scene = scenes[2];
+        const scene = scenes[2];  // Get scene 3
         const sceneData = scene.userData;
         
         const mousemoveHandler = (event) => {
-            if (currentSceneIndex !== 1) return; // Exit if not in scene 2
-
+            if (currentSceneIndex !== 2) return; // Change from 1 to 2 to check for scene 3
+            
             const canvasBounds = renderer.domElement.getBoundingClientRect();
             sceneData.mouse.x = ((event.clientX - canvasBounds.left) / canvasBounds.width) * 2 - 1;
             sceneData.mouse.y = -((event.clientY - canvasBounds.top) / canvasBounds.height) * 2 + 1;
@@ -743,16 +953,30 @@ button.addEventListener('click', () => {
 
     // Update the switchScene function to setup listeners
     function switchScene(index) {
-        // Hide mode button from scene 2 if it exists
+        // Hide buttoninfo based on scene
+        buttoninfo.style.display = 'none';
+
+        // Handle back button visibility
+        scenes.forEach(scene => {
+            if (scene.userData.backButton) {
+                scene.userData.backButton.style.display = (index === 1 || index === 2) ? 'block' : 'none';
+            }
+        });
+
+        // Handle buttonstartstop visibility
         if (scenes[0]?.userData.startButton) {
-          scenes[0].userData.startButton.style.display = index === 0 ? 'block' : 'none';
-          
+            scenes[0].userData.startButton.style.display = index === 0 ? 'block' : 'none';
         }
 
+        // Hide buttoncolor for scenes 2 and 3
+        if (scenes[0]?.userData.buttoncolor) {
+            scenes[0].userData.buttoncolor.style.display = index === 0 ? 'block' : 'none';
+        }
+
+        // Show/hide mode button for scene 2
         if (scenes[1]?.userData.modeButton) {
             scenes[1].userData.modeButton.style.display = index === 1 ? 'block' : 'none';
         }
-
 
         const targetPosition = new THREE.Vector3(0, 2, 2); // Desired camera position for zoom
         const initialFOV = camera.fov;
@@ -794,6 +1018,9 @@ button.addEventListener('click', () => {
             setupEventListeners(index); // Setup new listeners
             resetCameraZoom();
         });
+
+      
+       
     }
 
     // Initialize listeners for the first scene
